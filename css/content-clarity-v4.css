@@ -1,0 +1,14 @@
+/* Remove decorative/repeated copy; keep dates, units, statuses, source caveats and field labels. */
+.glass-app #home :is(.statements-heading .eyebrow,.statement-en,.statement-insight,.statements-foot,.reimburse-panel .source-label,#expenseFootnote,.vehicle-kicker,.vehicle-image-label,.vehicle-basis,.page-footer),
+.glass-app #suitePage :is(.suite-head .eyebrow,.suite-head>div>p,.suite-footer-note,.trade-kicker,.bom-kicker,.trade-explanation,.trade-footnote,.trade-search>small),
+.glass-app #dialogKicker {display:none!important}
+
+.glass-app #home .table-footer {justify-content:flex-end}
+.glass-app #home .vehicle-controls {justify-content:flex-end}
+.glass-app #home .statement-card-head {align-items:center}
+.glass-app #suitePage .suite-head {padding-top:0}
+.glass-app #suitePage .suite-head h1 {margin-top:0;margin-bottom:0}
+
+/* Descriptions that change business meaning or help complete an action are intentionally untouched:
+   transaction identifiers, approval/payment state, missing BOM prices, measurement basis,
+   unconnected Feishu status, form instructions and the data provenance in management settings. */

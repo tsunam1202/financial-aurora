@@ -1,0 +1,632 @@
+/* Financial Aurora — a presentation layer only. Business data remains in its original stores. */
+body.glass-app {
+  --purple: #65277c;
+  --deep: #202638;
+  --muted: #657087;
+  --lavender: #a98ac6;
+  --line: rgba(137, 151, 185, .19);
+  --bg: #edf1f8;
+  --sidebar: 78px;
+  --glass-accent: #6257d9;
+  --glass-blue: #4779ed;
+  --glass-shadow: 0 8px 26px rgba(53, 74, 126, .065), 0 1px 3px rgba(255,255,255,.6) inset;
+  margin: 0;
+  min-width: 320px;
+  color: var(--deep);
+  font: 14px/1.55 Inter, "Noto Sans SC", "Segoe UI", "Microsoft YaHei", sans-serif;
+  background: radial-gradient(ellipse at 6% 7%, #e4ddf7 0, transparent 44%), radial-gradient(ellipse at 93% 47%, #d9e6fa 0, transparent 51%), radial-gradient(ellipse at 46% 90%, #e2ddf2 0, transparent 49%), #edf1f8;
+  background-attachment: fixed;
+}
+.glass-app button,.glass-app input,.glass-app textarea,.glass-app select {font-family:inherit}
+.glass-app small {color:var(--muted);font-size:12px}
+.glass-app strong {font-variant-numeric:tabular-nums}
+.glass-app ::selection {background:#d8cef0;color:#332247}
+.glass-app :focus-visible {outline:2px solid #8270b7;outline-offset:4px}
+.glass-app button,.glass-app a {transition:background-color .22s,color .22s,box-shadow .22s,border-color .22s}
+.glass-app ::-webkit-scrollbar {width:6px;height:6px}
+.glass-app ::-webkit-scrollbar-thumb {background:#a9b2ca88;border-radius:12px}
+.glass-app ::-webkit-scrollbar-track {background:transparent}
+
+/* A slender navigation rail, with full accessible button names retained in the DOM. */
+.glass-app .sidebar {left:18px;top:20px;bottom:20px;width:78px;padding:17px 10px 12px;border:1px solid #ffffffbc;border-radius:24px;background:linear-gradient(160deg,#ffffff78,#ebeffc80);box-shadow:var(--glass-shadow);backdrop-filter:blur(22px);z-index:40}
+.glass-app .sidebar .brand {height:38px;justify-content:center;margin:0 0 15px;gap:0;flex-shrink:0}
+.glass-app .sidebar .brand img {width:46px;height:34px;object-fit:contain}
+.glass-app .sidebar .brand>span {position:absolute;width:1px;height:1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap}
+.glass-app .sidebar .workspace {display:none}
+.glass-app #navigation {margin:0;overflow-x:hidden;overflow-y:auto;min-height:0;flex:1;scrollbar-width:thin;padding:2px 2px 4px;position:relative}
+.glass-app .nav-label {height:10px;margin:7px 8px 3px;border-top:1px solid #cdd5e56b;font-size:0;letter-spacing:0}
+.glass-app .nav-label:first-child {height:0;margin:0;border:0}
+.glass-app .nav-item {width:50px;height:44px;min-height:44px;padding:0;justify-content:center;margin:3px 0;border-radius:14px;color:#4f5871;font-size:0;gap:0;isolation:isolate;overflow:visible}
+.glass-app .nav-item .icon {width:21px;height:21px;stroke-width:1.55;position:relative;z-index:2}
+.glass-app .nav-item.active {background:rgba(255,255,255,.74);color:var(--purple);box-shadow:0 4px 12px #5d65b216,0 1px 0 #fff inset}
+.glass-app .nav-item.active:before {left:-5px;height:22px;width:3px;background:linear-gradient(#ac8ac9,#65277c);border-radius:5px;box-shadow:0 0 8px #956ab364}
+.glass-app .nav-item:hover {background:#ffffff87;color:var(--purple)}
+.glass-app .nav-count {position:absolute;right:1px;top:1px;font-size:9px;line-height:15px;min-width:15px;padding:0 3px;background:#eee6f5;color:#65277c;z-index:3}
+.glass-app .sidebar-bottom {padding-top:10px;display:flex;flex-direction:column;align-items:center;gap:7px;flex-shrink:0}
+.glass-app .lab-link {font-size:0;width:44px;height:30px;justify-content:center;padding:0}
+.glass-app .lab-link .icon {width:18px;height:18px;color:#69738d}
+.glass-app .feishu {width:44px;height:37px;justify-content:center;padding:0;border:0;background:transparent}
+.glass-app .feishu-icon {font-size:24px;color:#6784bc}
+.glass-app .feishu>span:nth-child(2),.glass-app .feishu>.icon {display:none}
+.glass-app .profile {width:44px;justify-content:center;margin:0;padding:4px 0;gap:0}
+.glass-app .profile>span:not(.avatar),.glass-app .profile>.icon {display:none}
+.glass-app .avatar {background:linear-gradient(135deg,#d8cbe7,#b2c7e8);color:#4f3267;font-weight:600;border:1px solid #ffffffa3}
+.glass-app .shell {margin-left:112px;margin-right:22px;min-width:0}
+.glass-app .topbar {height:66px;padding:0 8px;border-bottom:1px solid #ffffff73;background:transparent;backdrop-filter:none;gap:20px}
+.glass-app .breadcrumb {color:#69738b;font-size:12px}
+.glass-app .breadcrumb strong {color:#38425a;font-weight:500}
+.glass-app .top-actions {gap:15px}
+.glass-app .global-search {border:1px solid #ffffffc2;background:#ffffff5e;border-radius:20px;padding:8px 13px;width:clamp(210px,25vw,380px)}
+.glass-app .global-search input {font-size:12px;color:#3d485f}
+.glass-app input::placeholder {color:#8390a7}
+.glass-app kbd {background:#ffffff70;border-color:#d5dded;color:#77849d}
+.glass-app main {padding:18px 0 24px;max-width:1820px;min-width:0}
+.glass-app .heading {margin:0 0 19px;align-items:center}
+.glass-app .heading h1 {font-size:28px;color:#202638;font-weight:650;letter-spacing:-.65px}
+.glass-app .heading p {font-size:12px;color:#657087;display:block;margin-top:5px}
+.glass-app .eyebrow {font-size:10px;letter-spacing:1.7px;color:#776285}
+.glass-app .demo-badge {background:#f0ebfa;color:#73529b;border:1px solid #d9cdec;padding:4px 9px;border-radius:20px;font-size:11px}
+.glass-app .demo-badge b {background:#9272ad}
+
+/* The home uses one broad working canvas with a quieter utility column. */
+.glass-app .glass-home-grid {display:grid;grid-template-columns:minmax(0,1fr) minmax(285px,25%);gap:18px;align-items:start}
+.glass-app .glass-primary {display:flex;flex-direction:column;gap:17px;min-width:0}
+.glass-app .glass-utility {display:flex;flex-direction:column;gap:17px;min-width:0}
+.glass-app .glass-chart-pair {display:grid;grid-template-columns:1fr 1fr;gap:16px;min-width:0}
+.glass-app .glass-chart-pair>* {min-width:0}
+.glass-app #glassOverview,.glass-app .panel,.glass-app .suite-card,.glass-app .suite-metric,.glass-app #tradeHome,.glass-app .glass-quick-actions {background:linear-gradient(140deg,#ffffffd4,#f9fbffb5);border:1px solid #ffffffd9;border-radius:20px;box-shadow:var(--glass-shadow);backdrop-filter:blur(16px)}
+.glass-app .panel {animation:none}
+.glass-app #glassOverview {padding:23px 25px;background:radial-gradient(ellipse at 52% 60%,#e0d8f58a,transparent 67%),linear-gradient(130deg,#ffffffe0,#eef2ffb0)}
+.glass-app .glass-overview-head {display:flex;align-items:center;justify-content:space-between;gap:14px;margin-bottom:20px}
+.glass-app .glass-overview-head h2 {font-size:17px;font-weight:600;margin:0;display:flex;align-items:center;gap:10px}
+.glass-app .glass-overview-body {display:flex;align-items:center;justify-content:space-between;gap:22px;min-width:0}
+.glass-app .glass-balance {min-width:0;flex:1}
+.glass-app .glass-balance>span,.glass-app .glass-balance>small {font-size:13px;color:#59637c;display:block}
+.glass-app .glass-balance>strong {font-size:clamp(28px,3vw,43px);font-weight:650;letter-spacing:-1.5px;display:block;line-height:1.25;margin:9px 0;color:#202638;white-space:nowrap}
+.glass-app .glass-orbits {display:flex;align-items:center;justify-content:center;min-width:0;isolation:isolate}
+.glass-app .glass-orbit {width:clamp(94px,10vw,140px);height:clamp(94px,10vw,140px);border:1px solid #ffffffc2;border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:7px;background:#ffffff67;box-shadow:0 8px 20px #63749e0e;position:relative}
+.glass-app .glass-orbit+.glass-orbit {margin-left:-16px}
+.glass-app .glass-orbit span {color:#56617b;font-size:12px}
+.glass-app .glass-orbit strong {font-size:clamp(15px,1.35vw,21px);color:#202638;letter-spacing:-.5px}
+.glass-app .glass-orbit.net,.glass-app .glass-orbit.is-net {z-index:2;background:linear-gradient(145deg,#9354c4c9,#651a7ce6);border-color:#c29fd9a3;box-shadow:0 9px 23px #65277c20}
+.glass-app .glass-orbit.net span,.glass-app .glass-orbit.is-net span {color:#f3eafa}
+.glass-app .glass-orbit.net strong,.glass-app .glass-orbit.is-net strong {color:#fff}
+.glass-app .glass-overview-actions {display:flex;flex-direction:column;gap:10px;min-width:112px}
+.glass-app .glass-overview-actions .button {width:100%}
+.glass-app .glass-overview-actions .primary {background:#242435;border-color:#242435;box-shadow:0 6px 14px #30304b23}
+.glass-app .glass-overview-actions .primary:hover {background:#38334d}
+.glass-app .glass-overview-footer {display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;border-top:1px solid #cbd3e457;margin-top:20px;padding-top:13px;color:#657087;font-size:12px}
+.glass-app #glassOverview .stats {display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;margin:18px -8px -7px;border-top:1px solid var(--line);padding-top:14px}
+.glass-app #glassOverview .stat:nth-child(-n+3) {display:none}
+.glass-app #glassOverview .stat {background:transparent;border:0;border-right:1px solid var(--line);border-radius:0;padding:4px 12px;box-shadow:none;color:var(--deep);overflow:visible}
+.glass-app #glassOverview .stat:last-child {border:0}
+.glass-app #glassOverview .stat:before,.glass-app #glassOverview .stat:after {display:none}
+.glass-app #glassOverview .stat-label {font-size:11px;color:#657087}
+.glass-app #glassOverview .stat-label .icon {display:none}
+.glass-app #glassOverview .stat-value {font-size:18px;font-weight:600;margin:7px 0;letter-spacing:-.3px}
+.glass-app #glassOverview .stat-value .currency {font-size:13px}
+.glass-app #glassOverview .stat small {font-size:10px;color:#657087;line-height:1.6}
+.glass-app .glass-utility .panel {display:block;grid-column:auto}
+.glass-app .glass-utility .tasks-panel .panel-heading {padding:20px 19px 0;margin-bottom:9px;width:auto}
+.glass-app .glass-utility #taskList {display:block;width:auto;padding:0}
+.glass-app .glass-utility .task-row {display:flex;width:calc(100% - 32px);margin:0 16px;padding:14px 0;border-bottom:1px solid var(--line);font-size:12px;gap:9px}
+.glass-app .glass-utility .task-row strong {font-size:14px}
+.glass-app .glass-utility .all-tasks {display:flex;width:calc(100% - 36px);margin:12px 18px 16px}
+.glass-app .task-icon {background:#eef1fa;color:#7271a5;border:1px solid #ffffffbd;border-radius:9px;padding:7px}
+.glass-app .task-icon .icon {width:16px;height:16px}
+.glass-app .warning {font-size:11px;border-radius:10px;background:#fff5e8d6;border-color:#f4dfbf;color:#91621e;white-space:normal;line-height:1.7}
+.glass-app .glass-utility .warning {width:calc(100% - 32px);margin:12px 16px 8px;padding:10px}
+.glass-app .panel-heading {padding:20px 19px 0;gap:10px}
+.glass-app .panel-heading h2 {font-size:15px;color:#263049;white-space:normal}
+.glass-app .panel-heading h2 .icon {color:#76608f;width:18px;height:18px}
+.glass-app .panel-heading>small {font-size:11px;white-space:normal}
+.glass-app .budget-total {flex-wrap:wrap;margin:18px 19px 16px;gap:9px;font-size:12px;color:#657087}
+.glass-app .budget-total strong {font-size:28px;color:#263049}
+.glass-app .budget-total>.soft-badge {font-size:10px;margin-left:0}
+.glass-app .budget-stack {height:10px;border-radius:8px;margin:0 19px}
+.glass-app .budget-stack span:nth-child(1) {background:linear-gradient(90deg,#b490cc,#65277c)}
+.glass-app .budget-stack span:nth-child(2) {background:#9bafdf}
+.glass-app .budget-stack span:nth-child(3) {background:#d3dcee}
+.glass-app .budget-legend {margin:13px 19px;gap:8px;color:#657087;font-size:11px;flex-wrap:wrap}
+.glass-app .budget-legend strong {font-size:12px;color:#39435d}
+.glass-app .budget-rows {margin:0 19px 14px}
+.glass-app .mini-table-head,.glass-app .budget-row {font-size:11px;gap:7px;border-color:var(--line)}
+.glass-app .budget-row>span:nth-child(2),.glass-app .budget-row>b {font-size:11px;color:#57637a}
+.glass-app .glass-quick-actions {padding:20px}
+.glass-app .glass-quick-actions h2 {font-size:16px;margin:0 0 17px}
+.glass-app .glass-quick-grid {display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px}
+.glass-app .glass-quick-grid button {display:flex;flex-direction:column;gap:8px;align-items:center;font-size:12px;color:#56617a}
+.glass-app .glass-quick-grid .icon {width:24px;height:24px;box-sizing:content-box;padding:13px;border-radius:50%;background:#e9e2f6;color:#6e5094}
+.glass-app .glass-quick-grid button:nth-child(2) .icon {background:#dfeafa;color:#5179b0}
+.glass-app .glass-quick-grid button:nth-child(3) .icon {background:#deeee7;color:#537f72}
+.glass-app #tradeHome {padding:15px 19px;margin:0}
+.glass-app .trade-home-heading {font-size:13px;margin-bottom:12px}
+.glass-app .trade-home-metrics {gap:12px}
+.glass-app .trade-home-metrics small {font-size:11px;line-height:1.6;margin-bottom:6px}
+.glass-app .trade-home-metrics strong {font-size:17px;color:#58416e}
+.glass-app .trade-home-metrics button {border-color:var(--line)}
+
+/* Preserve all three live carousel pages; only their surface and spacing change. */
+.glass-app .dashboard-carousel {margin-top:0;padding:15px;border:1px solid #ffffffd2;background:linear-gradient(130deg,#ffffff75,#edf1ff90);border-radius:23px;box-shadow:var(--glass-shadow);min-width:0}
+.glass-app .carousel-toolbar {padding:0 0 13px;margin-bottom:15px;border-bottom:1px solid #d2d9ea8c;gap:10px}
+.glass-app .carousel-tabs {background:#ffffff68;border:1px solid #ffffff88;border-radius:13px;padding:3px;gap:3px;position:relative}
+.glass-app .carousel-tabs button {font-size:12px;padding:9px 11px;border-radius:10px;color:#637087;position:relative}
+.glass-app .carousel-tabs button[aria-pressed=true] {background:#ffffff9c;color:#65277c;box-shadow:0 2px 8px #6a4e8b12}
+.glass-app .carousel-tabs button[aria-pressed=true]:after {content:"";position:absolute;left:15%;right:15%;bottom:-5px;height:2px;background:#8f65ad;border-radius:9px;box-shadow:0 2px 7px #9566b666}
+.glass-app .carousel-controls button {background:#ffffff9c;border:1px solid #ffffffcf;border-radius:50%;width:30px;height:30px;color:#5f5479;box-shadow:0 2px 7px #526b9610}
+.glass-app .carousel-status {font-size:10px;color:#66748d;white-space:nowrap}
+.glass-app .carousel-viewport {border-radius:15px}
+.glass-app .statements-heading {flex-wrap:wrap;align-items:flex-start;margin-bottom:15px}
+.glass-app .statements-heading h2 {font-size:16px;flex-wrap:wrap;gap:7px;color:#29334a}
+.glass-app .statements-heading .eyebrow {font-size:10px;color:#786b8b}
+.glass-app .statement-actions>span {font-size:11px;color:#657087}
+.glass-app .statements-grid {gap:12px}
+.glass-app .statement-card {padding:17px 15px 0;border-radius:16px}
+.glass-app .statement-card-head h3 {font-size:14px}
+.glass-app .statement-en {font-size:9px;color:#6b7891}
+.glass-app .statement-primary {display:block;margin:17px 0 13px}
+.glass-app .statement-primary>div>span {font-size:12px;color:#657087}
+.glass-app .statement-primary>div>strong {font-size:28px;color:#65277c}
+.glass-app .statement-primary>div>strong small {font-size:11px;color:#657087}
+.glass-app .statement-secondary {display:flex;gap:9px;justify-content:space-between;align-items:center;margin-top:9px;text-align:left}
+.glass-app .statement-secondary b,.glass-app .statement-secondary small {font-size:10px;color:#657087;margin:0}
+.glass-app .statement-legend {font-size:11px;color:#657087;gap:9px;flex-wrap:wrap}
+.glass-app .statement-chart {height:182px;margin-left:-8px;margin-right:-8px}
+.glass-app .statement-chart svg text {fill:#77849b}
+.glass-app .statement-insight {font-size:11px;color:#657087;border-color:var(--line);line-height:1.7}
+.glass-app .statements-foot {font-size:11px;color:#657087;line-height:1.7;flex-wrap:wrap}
+.glass-app .statement-tooltip {background:#34263feF;backdrop-filter:blur(12px);border:1px solid #ffffff40;border-radius:12px}
+.glass-app .statement-tooltip>strong,.glass-app .statement-tooltip>span,.glass-app .statement-tooltip>small {font-size:12px}
+.glass-app .operations-grid {grid-template-columns:minmax(0,1.65fr) minmax(235px,1fr);gap:14px}
+.glass-app .table-toolbar {padding:14px 18px;gap:10px;flex-wrap:wrap}
+.glass-app .tabs {gap:13px}
+.glass-app .tabs button {font-size:12px;color:#657087}
+.glass-app .tabs button.active {color:#65277c}
+.glass-app .table-scroll {padding:0 12px}
+.glass-app .expense-table th {font-size:12px;padding:12px 10px;background:#edf1f9a3;color:#657087}
+.glass-app .expense-table td {font-size:12px;padding:14px 10px;border-color:var(--line)}
+.glass-app .expense-table td small {font-size:11px;color:#657087}
+.glass-app .row-action {font-size:11px;border-radius:7px;padding:6px 9px;border-color:#d7cce6;color:#724a89}
+.glass-app .table-footer {font-size:11px;gap:14px;padding:14px 18px;color:#657087}
+.glass-app .supplier-row {border-color:var(--line);margin:0 17px;padding:13px 0;gap:9px}
+.glass-app .supplier-name {font-size:12px;min-width:0;line-height:1.7}
+.glass-app .supplier-name small {font-size:11px;color:#657087;overflow-wrap:anywhere}
+.glass-app .supplier-amount {font-size:13px;flex-shrink:0}
+.glass-app .supplier-amount .status {font-size:11px}
+.glass-app .date-block {background:#eae9f7;color:#77668c;border-radius:9px;min-width:38px;height:43px}
+.glass-app .date-block small {font-size:10px}
+.glass-app .date-block.overdue {background:#fae8e8;color:#ad525d}
+.glass-app .supplier-total {font-size:12px;flex-wrap:wrap;gap:9px;border-color:var(--line)}
+.glass-app .supplier-total strong {font-size:17px}
+.glass-app .insights-grid {grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px}
+.glass-app .insights-grid .studio-panel {grid-column:1/-1;display:block;min-width:0}
+.glass-app .bom-body {padding:18px 15px 11px;gap:12px;flex-wrap:wrap}
+.glass-app .bom-body .donut-wrap {width:44%;max-width:210px;min-width:150px;margin:auto}
+.glass-app .bom-body .bom-legend {min-width:180px}
+.glass-app .donut-center span {font-size:11px;color:#657087}
+.glass-app .donut-center strong {font-size:21px;color:#65277c}
+.glass-app .donut-center small {font-size:10px;color:#657087}
+.glass-app .bom-legend button {font-size:12px;gap:5px;border-color:var(--line);padding:10px 2px}
+.glass-app .bom-legend button strong {font-size:12px;color:#3e465c}
+.glass-app .bom-legend button small {font-size:10px;color:#657087}
+.glass-app .bom-footer {font-size:11px;color:#657087;gap:10px;flex-wrap:wrap;border-color:var(--line);line-height:1.7}
+.glass-app .sponsor-row {font-size:13px;border-color:var(--line);padding:16px 0;margin:0 18px}
+.glass-app .sponsor-row small,.glass-app .sponsor-row strong small {font-size:11px}
+.glass-app .sponsor-row strong {font-size:15px}
+.glass-app .sponsor-note {font-size:11px;border-radius:9px;padding:9px 10px;line-height:1.7;color:#8d713e}
+.glass-app .recent-header {font-size:12px;border-color:var(--line)}
+.glass-app .activity-row {font-size:12px;color:#657087;line-height:1.7}
+.glass-app .activity-row time {font-size:11px;color:#657087;flex-shrink:0}
+.glass-app .source-label,.glass-app .page-footer {font-size:11px;color:#657087}
+.glass-app .page-footer {margin:22px 2px 0;line-height:1.8;gap:12px}
+
+/* Dense working pages: high-opacity surfaces and consistent readable typography. */
+.glass-app .suite-page {min-height:80vh;max-width:1600px}
+.glass-app .suite-head {gap:22px;margin:4px 0 25px;align-items:flex-start}
+.glass-app .suite-head h1 {font-size:28px;color:#202638;letter-spacing:-.6px}
+.glass-app .suite-head p {font-size:13px;color:#657087;line-height:1.85;max-width:900px}
+.glass-app .suite-page .eyebrow {font-size:10px;color:#776b8b}
+.glass-app .suite-actions {gap:9px}
+.glass-app .suite-card {padding:24px;background:linear-gradient(135deg,#fffffff2,#f8faffed);margin-bottom:20px;backdrop-filter:blur(12px)}
+.glass-app .suite-card h2 {font-size:17px;font-weight:600;color:#29334a;line-height:1.6}
+.glass-app .suite-card h3 {font-size:15px}
+.glass-app .suite-metrics {gap:16px;margin-bottom:22px}
+.glass-app .suite-metric {padding:23px;background:linear-gradient(140deg,#ffffffde,#f4f7ffcb);border-radius:18px;min-width:0}
+.glass-app .suite-metric span {font-size:13px;color:#657087}
+.glass-app .suite-metric strong,.glass-app .trade-metrics .suite-metric strong,.glass-app .bom-metrics .suite-metric strong {font-size:28px;color:#4e355f;letter-spacing:-.7px;margin:11px 0 6px;overflow-wrap:anywhere}
+.glass-app .suite-metric small,.glass-app .trade-metrics .suite-metric small,.glass-app .bom-metrics .suite-metric small {font-size:12px;line-height:1.75;color:#657087}
+.glass-app .suite-metric.trade-cash-metric {background:linear-gradient(135deg,#65277c,#805697);border-color:#b38ac5}
+.glass-app .trade-cash-metric strong {color:#fff!important}
+.glass-app .trade-cash-metric span,.glass-app .trade-cash-metric small {color:#f0e2f5!important}
+.glass-app .suite-tools {gap:12px;margin-bottom:20px}
+.glass-app .suite-tools input,.glass-app .suite-tools select,.glass-app .bom-filters input,.glass-app .bom-filters select {font-size:13px;min-height:41px;border-radius:10px;background:#f6f8fdea;border:1px solid #dce3ef;color:#38435b;padding:9px 12px}
+.glass-app .suite-tools small {font-size:12px;line-height:1.7;color:#657087}
+.glass-app .suite-table-scroll {border:1px solid #e0e6f0;border-radius:12px;max-width:100%;background:#ffffffa8;scrollbar-gutter:stable}
+.glass-app .suite-table {font-size:13px;color:#344057;font-variant-numeric:tabular-nums}
+.glass-app .suite-table th,.glass-app .trade-table th,.glass-app .bom-table th {font-size:12px;line-height:1.65;font-weight:500;background:#edf1f8;color:#5c6b83;position:sticky;top:0;z-index:1;border-color:#dfe5ef}
+.glass-app .suite-table td,.glass-app .trade-table td,.glass-app .bom-table td {font-size:13px;line-height:1.7;border-color:#e7ebf3;vertical-align:middle}
+.glass-app .suite-table th,.glass-app .suite-table td {padding:15px 13px}
+.glass-app .suite-table tbody tr:hover {background:#f2f1fc8c}
+.glass-app .suite-table td small,.glass-app .trade-table td small,.glass-app .bom-table td small {font-size:12px;line-height:1.7;color:#657087;letter-spacing:0}
+.glass-app .suite-table .text-button,.glass-app .trade-row-actions .text-button,.glass-app .bom-table .text-button {font-size:12px}
+.glass-app .suite-table .bom-source-cell {font-size:11px!important;color:#657087}
+.glass-app .sku-product {max-width:420px;gap:14px}
+.glass-app .sku-product img {width:70px;height:62px;background:#eff3fa;border:1px solid #e5eaf3;border-radius:10px}
+.glass-app .sku-product small {font-size:12px}
+.glass-app .suite-tag,.glass-app .trade-pill,.glass-app .bom-type {font-size:11px;padding:5px 8px;border-radius:7px;background:#eee8f7;color:#75548a;line-height:1.55}
+.glass-app .suite-tag.green,.glass-app .trade-pill.green {background:#e6f3ed;color:#277859}
+.glass-app .suite-tag.amber,.glass-app .trade-pill.amber {background:#fff0d7;color:#916312}
+.glass-app .suite-tag.red {background:#fbe9ea;color:#a84856}
+.glass-app .trade-pill.neutral {background:#edf0f6;color:#66748c}
+.glass-app .suite-note,.glass-app .dialog-note {font-size:13px;color:#647089;border-radius:12px;background:#eef0f9cc;border:1px solid #e1e4f1;padding:15px 18px;line-height:1.85}
+.glass-app .suite-help,.glass-app .suite-footer-note,.glass-app .trade-footnote,.glass-app .trade-explanation {font-size:12px;line-height:1.9;color:#657087}
+.glass-app .suite-bar-label {font-size:13px;color:#44516a}
+.glass-app .suite-bar-track,.glass-app .suite-progress {height:9px;background:#e7eaf4}
+.glass-app .suite-bar-track span,.glass-app .suite-progress span {background:linear-gradient(90deg,#65277c,#b194cc)}
+.glass-app .suite-state {font-size:13px;border-color:var(--line)}
+.glass-app .suite-state small {font-size:12px}
+.glass-app .suite-pill-row button,.glass-app .trade-tabs button,.glass-app .bom-tabs button {font-size:13px;padding:9px 13px;color:#66718a;border-radius:10px}
+.glass-app .suite-pill-row button.active,.glass-app .trade-tabs button.active,.glass-app .bom-tabs button.active {background:#eae3f4;color:#65277c;box-shadow:0 1px 1px #ffffffb3 inset}
+.glass-app .trade-flow {border:1px solid #dce1ef;border-radius:16px;background:#dde3ef;gap:1px}
+.glass-app .trade-flow>button {background:#f6f8fd;padding:20px 16px;gap:8px}
+.glass-app .trade-flow>button:hover {background:#efedf8}
+.glass-app .trade-flow small {font-size:10px;color:#7c86a1}
+.glass-app .trade-flow strong {font-size:14px;color:#4d365d}
+.glass-app .trade-flow span {font-size:12px;color:#657087;line-height:1.8}
+.glass-app .trade-toolbar {gap:16px;margin-bottom:19px;border-color:var(--line)}
+.glass-app .trade-card-heading>small,.glass-app .trade-search small {font-size:12px;color:#657087}
+.glass-app .trade-kicker,.glass-app .bom-kicker {font-size:10px;color:#7b6a92}
+.glass-app .trade-table-foot {font-size:12px;color:#657087}
+.glass-app .trade-table-foot strong {color:#4d365d}
+.glass-app .trade-next-grid>button {border-color:#dfe4ef;border-radius:14px;background:#f6f8fd;padding:20px}
+.glass-app .trade-next-grid span {font-size:13px;color:#657087}
+.glass-app .trade-next-grid strong {font-size:25px;color:#583b6c}
+.glass-app .trade-next-grid small,.glass-app .trade-next-grid em {font-size:12px;color:#657087}
+.glass-app .trade-rule-row {grid-template-columns:130px 1fr;padding:18px 0;border-color:var(--line)}
+.glass-app .trade-rule-row>span {font-size:13px;color:#657087}
+.glass-app .trade-rule-row strong {font-size:14px;color:#4d365d}
+.glass-app .trade-rule-row small {font-size:12px;color:#657087}
+.glass-app .trade-trace-demo span {font-size:12px;border-radius:9px;background:#eeeaf6;color:#6e537d;padding:10px 13px}
+.glass-app .trade-check-grid>div {font-size:13px;border-color:#dce3ef;border-radius:11px;color:#47546d}
+.glass-app .trade-check-grid small {font-size:12px;color:#657087}
+.glass-app .trade-check-errors {font-size:13px;color:#a64a5b}
+.glass-app .trade-muted {color:#657087}
+.glass-app .trade-green,.glass-app .green-text {color:#277c61}
+.glass-app .trade-amber,.glass-app .amber-text {color:#916312}
+.glass-app .red-text {color:#ad4e5e}
+.glass-app .gray-text {color:#657087}
+.glass-app .status {font-size:11px;line-height:1.6}
+.glass-app .trade-progress {height:5px;background:#e5e8f2}
+.glass-app .trade-progress span {background:#9a7eb8}
+.glass-app .bom-workspace .suite-card {padding:24px}
+.glass-app .bom-source-strip {font-size:13px;color:#657087;line-height:1.8}
+.glass-app .bom-source-strip small {font-size:12px;color:#657087}
+.glass-app .bom-card-title h2 {font-size:17px}
+.glass-app .bom-card-title>small {font-size:12px;color:#657087}
+.glass-app .bom-system-legend button {font-size:13px;color:#4e3b60;border-color:var(--line);padding:12px 6px}
+.glass-app .bom-system-legend strong {font-size:13px}
+.glass-app .bom-system-legend small {font-size:11px;color:#657087;line-height:1.7}
+.glass-app .bom-system-legend button:hover,.glass-app .bom-system-legend button.active {background:#eee9f7}
+.glass-app .bom-ring-center strong {font-size:25px;color:#65277c}
+.glass-app .bom-ring-center small,.glass-app .bom-ring-center span {font-size:11px;color:#657087}
+.glass-app .bom-chart-foot,.glass-app .bom-inline-note {font-size:12px;color:#657087;border-color:var(--line)}
+.glass-app .bom-rank-name {font-size:13px!important;color:#5d476f;padding-bottom:8px}
+.glass-app .bom-rank-number {font-size:11px;color:#77839b}
+.glass-app .bom-rank-value strong {font-size:13px}
+.glass-app .bom-rank-value small {font-size:11px;color:#657087}
+.glass-app .bom-rank-track {height:6px;background:#e9edf5}
+.glass-app .bom-filters label>span {font-size:12px;color:#657087}
+.glass-app .bom-table-caption {font-size:12px;color:#657087}
+.glass-app .bom-pagination,.glass-app .bom-pagination strong,.glass-app .bom-pagination button {font-size:12px;color:#657087}
+.glass-app .bom-scenario-summary>div {background:#f0eff8;border-radius:14px;padding:21px}
+.glass-app .bom-scenario-summary span,.glass-app .bom-scenario-summary small {font-size:12px;color:#657087;line-height:1.7}
+.glass-app .bom-scenario-summary strong {font-size:27px;color:#65277c}
+.glass-app .bom-compare-bars span {font-size:12px;color:#657087;width:65px}
+.glass-app .bom-source-line {font-size:13px;border-color:var(--line)}
+.glass-app .bom-source-line span {color:#657087}
+.glass-app .bom-source-line strong {font-size:14px}
+.glass-app .bom-source-file strong {font-size:13px;color:#38425a}
+.glass-app .bom-source-file small,.glass-app .bom-source-file p {font-size:12px;color:#657087}
+.glass-app .bom-issue strong {font-size:13px;color:#916b2b}
+.glass-app .bom-issue small,.glass-app .bom-issue>span {font-size:12px;color:#657087}
+.glass-app .bom-reference-count {color:#65277c}
+.glass-app .bom-reference-count small,.glass-app .bom-reference-samples strong,.glass-app .bom-reference-samples small,.glass-app .bom-source-notes {font-size:12px;color:#657087}
+.glass-app .bom-source-box {font-size:12px;color:#657087;background:#f3f5fb;border:1px solid #e2e7f1;border-radius:12px}
+.glass-app .bom-source-box h3 {font-size:14px;color:#344057}
+.glass-app .bom-source-box pre {font-size:11px}
+.glass-app .bom-source-caption,.glass-app .bom-control-strip,.glass-app .bom-component-labels {font-size:12px;color:#657087}
+.glass-app .sku-request-items {font-size:13px}
+.glass-app .sku-request-head small,.glass-app .sku-quote-line p {font-size:12px;color:#657087}
+
+/* Shared controls and working dialogs. */
+.glass-app .button,.glass-app .date-chip {padding:10px 14px;font-size:12px;line-height:1.5;border-radius:10px;background:#ffffffb8;border:1px solid #dce1ef;color:#465169;box-shadow:0 2px 5px #556b9610;min-height:38px}
+.glass-app .button:hover {border-color:#bda5ce;background:#fff;box-shadow:0 4px 10px #65547c13}
+.glass-app .button.primary {background:linear-gradient(135deg,#7b4593,#65277c);color:#fff;border-color:#7c4593;box-shadow:0 4px 10px #65277c24}
+.glass-app .button.primary:hover {background:linear-gradient(135deg,#8b52a2,#71308b)}
+.glass-app .button:disabled {opacity:.45;cursor:default;box-shadow:none}
+.glass-app .text-button {font-size:12px;color:#77508d;line-height:1.6}
+.glass-app .text-button:hover {color:#4e1e64}
+.glass-app .soft-badge {font-size:11px;border-radius:6px;background:#ece8f5;color:#73578b;padding:4px 8px}
+.glass-app .segmented {padding:3px;background:#e8edf7ad;border:1px solid #ffffffa3;border-radius:11px}
+.glass-app .segmented button {font-size:11px;padding:6px 9px;border-radius:8px;color:#66718a}
+.glass-app .segmented button.active {background:#fff;color:#65277c;box-shadow:0 2px 6px #5f6b8b16}
+.glass-app .select-wrap select {font-size:12px;border-radius:9px;background:#ffffffc9;border-color:#dce2ed;padding:8px 25px 8px 10px;color:#657087}
+.glass-app dialog {background:linear-gradient(135deg,#fffffff7,#f5f6fff2);border:1px solid #fff;border-radius:22px;padding:27px;color:#263049;box-shadow:0 30px 110px #25345338;backdrop-filter:blur(20px);width:min(760px,calc(100vw - 34px));max-height:88vh}
+.glass-app dialog::backdrop {background:#27334e38;backdrop-filter:blur(7px)}
+.glass-app .dialog-header h2 {font-size:23px;letter-spacing:-.5px}
+.glass-app .dialog-header .eyebrow {font-size:10px}
+.glass-app .detail-row {font-size:13px;line-height:1.8;border-color:var(--line);padding:14px 2px}
+.glass-app .detail-row span {color:#657087}
+.glass-app .form-grid label,.glass-app .suite-form label {font-size:13px;color:#5c6780}
+.glass-app .form-grid input,.glass-app .form-grid select,.glass-app .suite-form input,.glass-app .suite-form select,.glass-app .suite-form textarea {padding:11px 12px;min-height:42px;border-radius:10px;border-color:#dce2ee;background:#ffffffd9;color:#263049;font-size:13px}
+.glass-app .form-grid input:focus,.glass-app .suite-form input:focus,.glass-app .suite-form textarea:focus {border-color:#ad8bc3}
+.glass-app .statement-table {font-size:13px}
+.glass-app .statement-table thead th {font-size:12px;background:#edf1f8;color:#657087}
+.glass-app .statement-table td,.glass-app .statement-table th {padding:12px 10px;border-color:var(--line)}
+.glass-app .statement-formula {font-size:12px;color:#657087}
+.glass-app .toast {background:#35283fef;backdrop-filter:blur(14px);border:1px solid #ffffff40;border-radius:12px;font-size:13px;box-shadow:0 9px 30px #28334c26}
+.glass-app .glass-tooltip {position:fixed;z-index:1000;background:#302a40ee;color:#fff;border:1px solid #ffffff35;box-shadow:0 8px 24px #28334c2c;backdrop-filter:blur(12px);padding:9px 13px;border-radius:10px;max-width:300px;font-size:12px;line-height:1.7;pointer-events:none}
+
+@media(min-width:1700px) {
+  .glass-app .shell {margin-left:124px;margin-right:32px}
+  .glass-app .sidebar {left:24px;top:24px;bottom:24px}
+  .glass-app .glass-home-grid {grid-template-columns:minmax(0,1fr) 330px;gap:22px}
+  .glass-app .glass-primary,.glass-app .glass-utility {gap:20px}
+  .glass-app #glassOverview {padding:26px 29px}
+  .glass-app .statement-chart {height:205px}
+}
+@media(max-width:1350px) {
+  .glass-app .glass-home-grid {grid-template-columns:minmax(0,1fr) 275px;gap:14px}
+  .glass-app .glass-overview-body {gap:13px;flex-wrap:wrap}
+  .glass-app .glass-overview-actions {flex-direction:row;flex:1 0 100%;justify-content:flex-end}
+  .glass-app .glass-overview-actions .button {width:auto}
+  .glass-app .glass-orbit {width:104px;height:104px}
+  .glass-app #glassOverview .stats {grid-template-columns:repeat(3,minmax(0,1fr));row-gap:12px}
+  .glass-app #glassOverview .stat:nth-child(3n) {border-right:0}
+  .glass-app .carousel-toolbar {flex-wrap:wrap}
+  .glass-app .carousel-controls {margin-left:auto}
+  .glass-app .operations-grid {grid-template-columns:1fr}
+  .glass-app .operations-grid #supplierList {display:block}
+  .glass-app .statement-secondary {display:block}
+  .glass-app .statement-secondary small {margin-top:5px}
+  .glass-app .budget-total {display:block}
+  .glass-app .budget-total strong {display:block;margin:5px 0}
+  .glass-app .budget-legend {display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  .glass-app .insights-grid {grid-template-columns:1fr}
+}
+@media(max-width:1100px) {
+  .glass-app .shell {margin-left:106px;margin-right:16px}
+  .glass-app .sidebar {left:14px}
+  .glass-app .glass-home-grid {grid-template-columns:minmax(0,1fr)}
+  .glass-app .glass-utility {display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  .glass-app .glass-overview-body {flex-wrap:nowrap}
+  .glass-app .glass-overview-actions {flex:0 0 auto;flex-direction:column}
+  .glass-app .glass-orbit {width:112px;height:112px}
+  .glass-app .glass-orbit strong {font-size:18px}
+  .glass-app .insights-grid {grid-template-columns:1fr 1fr}
+  .glass-app .operations-grid {grid-template-columns:minmax(0,1.6fr) minmax(240px,1fr)}
+  .glass-app .trade-home-metrics {grid-template-columns:repeat(5,minmax(0,1fr))}
+  .glass-app .suite-metric strong,.glass-app .trade-metrics .suite-metric strong,.glass-app .bom-metrics .suite-metric strong {font-size:26px}
+}
+@media(max-width:900px) {
+  .glass-app .shell {margin-left:0;margin-right:0;padding:0 18px}
+  .glass-app .topbar {padding:0;height:60px}
+  .glass-app main {padding-top:17px}
+  .glass-app .sidebar {width:248px;left:0;top:0;bottom:0;border-radius:0 24px 24px 0;padding:23px 15px 14px;transform:translateX(-105%);background:#eff1fcf5;backdrop-filter:blur(25px)}
+  .glass-app .sidebar.open {transform:translateX(0)}
+  .glass-app .sidebar .brand {justify-content:flex-start;margin-bottom:22px;gap:8px}
+  .glass-app .sidebar .brand img {width:42px}
+  .glass-app .sidebar .brand>span {position:static;width:auto;height:auto;clip:auto;overflow:visible;font-size:16px}
+  .glass-app .sidebar .brand small {font-size:10px}
+  .glass-app #navigation {padding:0 4px}
+  .glass-app .nav-label {font-size:11px;height:auto;margin:20px 10px 8px;border:0;color:#728099}
+  .glass-app .nav-label:first-child {height:auto;margin:0 10px 8px}
+  .glass-app .nav-item {width:100%;font-size:13px;justify-content:flex-start;padding:11px 13px;height:44px;gap:12px;border-radius:12px}
+  .glass-app .nav-item.active:before {left:-4px}
+  .glass-app .nav-count {position:static;margin-left:auto;font-size:10px;padding:1px 5px}
+  .glass-app .sidebar-bottom {flex-direction:row;justify-content:space-around}
+  .glass-app .lab-link {height:37px}
+  .glass-app .overlay.open {z-index:35;background:#28334d45;backdrop-filter:blur(5px)}
+  .glass-app .mobile-menu {display:inline-flex}
+  .glass-app .glass-balance>strong {font-size:35px}
+  .glass-app .glass-overview-body {flex-wrap:wrap}
+  .glass-app .glass-overview-actions {flex-direction:row;flex-basis:100%}
+  .glass-app .glass-overview-actions .button {flex:1}
+  .glass-app .statements-grid {grid-template-columns:1fr}
+  .glass-app .statement-primary {display:flex}
+  .glass-app .statement-secondary {text-align:right}
+  .glass-app .statement-chart {height:225px}
+  .glass-app .operations-grid {grid-template-columns:1fr}
+  .glass-app .trade-home-metrics {grid-template-columns:repeat(3,minmax(0,1fr));row-gap:16px}
+  .glass-app .trade-home-metrics button:nth-child(3) {border-right:0}
+}
+@media(max-width:600px) {
+  .glass-app .shell {padding:0 11px}
+  .glass-app .topbar {height:56px;gap:8px}
+  .glass-app .top-actions {gap:4px}
+  .glass-app .breadcrumb {font-size:11px;gap:7px}
+  .glass-app .heading {gap:13px;align-items:flex-start;margin-bottom:16px}
+  .glass-app .heading h1 {font-size:24px;flex-wrap:wrap;gap:9px}
+  .glass-app .heading p {font-size:12px}
+  .glass-app .heading-actions {gap:7px;flex-wrap:wrap}
+  .glass-app .heading-actions .button,.glass-app .date-chip {font-size:11px;padding:8px 11px}
+  .glass-app .glass-home-grid,.glass-app .glass-primary,.glass-app .glass-utility {gap:13px}
+  .glass-app .glass-chart-pair,.glass-app .glass-utility {display:grid;grid-template-columns:1fr;gap:13px}
+  .glass-app #glassOverview {padding:19px 16px;border-radius:18px}
+  .glass-app .glass-overview-head {margin-bottom:16px;gap:9px;flex-wrap:wrap}
+  .glass-app .glass-overview-head h2 {font-size:16px}
+  .glass-app .glass-overview-body {gap:17px;justify-content:center}
+  .glass-app .glass-balance {flex:1 0 100%;text-align:left}
+  .glass-app .glass-balance>strong {font-size:38px;margin:6px 0}
+  .glass-app .glass-orbits {width:100%;justify-content:center}
+  .glass-app .glass-orbit {width:104px;height:104px}
+  .glass-app .glass-orbit span {font-size:11px}
+  .glass-app .glass-orbit strong {font-size:17px}
+  .glass-app #glassOverview .stats {grid-template-columns:repeat(2,minmax(0,1fr));gap:14px 0;margin-top:17px}
+  .glass-app #glassOverview .stat:nth-child(3n) {border-right:1px solid var(--line)}
+  .glass-app #glassOverview .stat:nth-child(2n) {border-right:0}
+  .glass-app #glassOverview .stat-value {font-size:20px}
+  .glass-app #glassOverview .stat small {font-size:11px}
+  .glass-app .glass-overview-footer {font-size:11px;margin-top:16px}
+  .glass-app .dashboard-carousel {padding:11px;border-radius:19px}
+  .glass-app .carousel-toolbar {gap:12px;padding-bottom:12px}
+  .glass-app .carousel-tabs {width:100%;justify-content:space-between;gap:0;padding:3px}
+  .glass-app .carousel-tabs button {font-size:11px;padding:9px 7px;gap:4px;white-space:normal;line-height:1.6}
+  .glass-app .carousel-tabs button span {font-size:9px}
+  .glass-app .carousel-controls {width:100%;justify-content:flex-end}
+  .glass-app .carousel-status {margin-right:auto}
+  .glass-app .trade-home-metrics {grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+  .glass-app .trade-home-metrics button:nth-child(3) {border-right:1px solid var(--line)}
+  .glass-app .trade-home-metrics button:nth-child(2n) {border-right:0}
+  .glass-app .trade-home-metrics strong {font-size:17px}
+  .glass-app .trade-home-heading {align-items:flex-start;gap:12px;font-size:12px}
+  .glass-app .trade-home-heading .text-button {font-size:11px;white-space:normal;text-align:right}
+  .glass-app .insights-grid {grid-template-columns:1fr}
+  .glass-app .statements-heading h2 {font-size:15px}
+  .glass-app .statement-actions {width:100%;flex-direction:row;justify-content:space-between;align-items:center}
+  .glass-app .statement-card {padding:17px 14px 0}
+  .glass-app .statement-chart {height:205px}
+  .glass-app .statement-primary>div>strong {font-size:27px}
+  .glass-app .statement-primary {gap:10px}
+  .glass-app .statement-secondary b,.glass-app .statement-secondary small {font-size:11px}
+  .glass-app .panel-heading {padding:17px 16px 0;flex-wrap:wrap}
+  .glass-app .table-footer {flex-wrap:wrap;font-size:11px;padding:13px}
+  .glass-app .supplier-row {margin:0 14px}
+  .glass-app .suite-head h1 {font-size:25px}
+  .glass-app .suite-head p {font-size:12px}
+  .glass-app .suite-card,.glass-app .bom-workspace .suite-card {padding:17px 14px;border-radius:17px;margin-bottom:15px}
+  .glass-app .suite-card h2,.glass-app .bom-card-title h2 {font-size:16px}
+  .glass-app .suite-metrics {gap:10px;margin-bottom:16px}
+  .glass-app .suite-metric {padding:16px 13px;border-radius:15px}
+  .glass-app .suite-metric strong,.glass-app .trade-metrics .suite-metric strong,.glass-app .bom-metrics .suite-metric strong {font-size:23px;letter-spacing:-.7px}
+  .glass-app .suite-metric span,.glass-app .suite-metric small,.glass-app .bom-metrics .suite-metric small,.glass-app .trade-metrics .suite-metric small {font-size:11px}
+  .glass-app .suite-table th,.glass-app .suite-table td {padding:13px 10px}
+  .glass-app .suite-table td,.glass-app .trade-table td,.glass-app .bom-table td {font-size:13px}
+  .glass-app .suite-tools {gap:10px}
+  .glass-app .suite-tools input {width:100%}
+  .glass-app .suite-note,.glass-app .dialog-note {padding:13px;font-size:12px}
+  .glass-app .trade-flow>button {padding:16px 12px}
+  .glass-app .trade-flow strong {font-size:13px}
+  .glass-app .trade-flow span {font-size:11px}
+  .glass-app .trade-tabs button,.glass-app .bom-tabs button,.glass-app .suite-pill-row button {font-size:12px;padding:8px 10px}
+  .glass-app .trade-next-grid>button {padding:15px 12px}
+  .glass-app .trade-next-grid strong {font-size:22px}
+  .glass-app .trade-rule-row {grid-template-columns:100px 1fr;gap:10px}
+  .glass-app .trade-rule-row strong {font-size:13px}
+  .glass-app .trade-check-grid>div {font-size:12px;padding:12px}
+  .glass-app .bom-system-legend button,.glass-app .bom-system-legend strong {font-size:13px}
+  .glass-app .bom-ring-center strong {font-size:24px}
+  .glass-app .bom-filters {gap:12px}
+  .glass-app .bom-source-strip {font-size:12px}
+  .glass-app .bom-source-strip small {font-size:11px}
+  .glass-app .bom-scenario-summary>div {padding:17px}
+  .glass-app .bom-source-line {font-size:12px;align-items:flex-start}
+  .glass-app .bom-source-line strong {font-size:13px;text-align:right}
+  .glass-app .bom-card-title {flex-wrap:wrap;gap:10px}
+  .glass-app .bom-ring-center span {font-size:10px}
+  .glass-app .button {font-size:12px;padding:9px 12px}
+  .glass-app dialog {padding:21px 17px;border-radius:18px}
+  .glass-app .dialog-header h2 {font-size:21px}
+  .glass-app .detail-row {font-size:13px;gap:15px}
+  .glass-app .page-footer {font-size:10px;text-align:center;gap:5px}
+}
+/* Desktop dashboard density: keep the car and BOM visible close to the first fold.
+   This deliberately does not change the density of the working ledger pages. */
+@media(min-width:1101px) {
+  .glass-app #home .glass-home-grid {gap:16px}
+  .glass-app #home .glass-primary,.glass-app #home .glass-utility {gap:14px}
+  .glass-app #home .glass-primary>.heading {min-height:64px}
+  .glass-app #home .glass-primary>.heading h1 {font-size:26px;margin:2px 0}
+  .glass-app #home .glass-primary>.heading p {font-size:11px;margin-top:3px}
+  .glass-app #home .glass-utility-heading {min-height:64px;padding-top:6px}
+  .glass-app #home #glassOverview {padding:14px 22px}
+  .glass-app #home .glass-overview-head {margin-bottom:8px}
+  .glass-app #home .glass-overview-head h2 {font-size:16px}
+  .glass-app #home .glass-overview-body {gap:15px;flex-wrap:nowrap}
+  .glass-app #home .glass-balance {flex:1 1 auto}
+  .glass-app #home .glass-balance>strong {font-size:36px;letter-spacing:-1px;margin:6px 0}
+  .glass-app #home .glass-balance>small {font-size:11px}
+  .glass-app #home .glass-orbits {width:auto;order:0}
+  .glass-app #home .glass-orbit {width:98px;height:98px;gap:4px}
+  .glass-app #home .glass-orbit+.glass-orbit {margin-left:-7px}
+  .glass-app #home .glass-orbit strong {font-size:18px}
+  .glass-app #home .glass-orbit span {font-size:11px}
+  .glass-app #home .glass-overview-actions {flex:0 0 auto;flex-direction:column;min-width:104px}
+  .glass-app #home .glass-overview-actions .button {width:100%;font-size:11px;padding:9px 11px;min-height:35px}
+  .glass-app #home .glass-overview-footer {margin-top:9px}
+  .glass-app #home #glassOverview #stats {padding-top:7px;row-gap:0}
+  .glass-app #home #glassOverview .stat {padding:1px 10px}
+  .glass-app #home #glassOverview .stat-value {font-size:18px;margin:2px 0}
+  .glass-app #home #glassOverview .stat small {font-size:10px;line-height:1.45}
+  .glass-app #home .glass-chart-pair {grid-template-columns:1fr 1fr;gap:14px}
+  .glass-app #home .motion-card {padding:14px 18px}
+  .glass-app #home .motion-head {margin-bottom:7px}
+  .glass-app #home .motion-head h2 {font-size:15px}
+  .glass-app #home .motion-chart {margin-top:6px}
+  .glass-app #home .motion-chart svg {height:128px;min-height:128px;max-height:128px}
+  .glass-app #home .motion-trend-card .motion-chart svg {height:115px;min-height:115px;max-height:115px}
+  .glass-app #home .motion-balance>strong {font-size:29px}
+  .glass-app #home .motion-trend-sub {margin-top:6px}
+  .glass-app #home .motion-source {margin-top:4px}
+  .glass-app #home .motion-values {padding-top:6px}
+  .glass-app #home #tradeHome {padding:12px 17px}
+  .glass-app #home .trade-home-heading {margin-bottom:8px;font-size:12px}
+  .glass-app #home .trade-home-metrics small {font-size:11px;margin-bottom:4px}
+  .glass-app #home .trade-home-metrics strong {font-size:17px}
+  .glass-app #home .dashboard-carousel {padding:12px}
+  .glass-app #home .carousel-toolbar {padding:5px;margin-bottom:12px}
+  .glass-app #home .insights-grid {gap:12px}
+  .glass-app #home .bom-body {flex-direction:row;flex-wrap:nowrap;align-items:center;min-height:0;padding:14px 14px 10px;gap:10px}
+  .glass-app #home .bom-body .donut-wrap {width:42%;max-width:190px;min-width:140px;margin:0;flex-shrink:0}
+  .glass-app #home .bom-body .bom-legend {width:auto;min-width:0;max-height:265px;overflow:auto;flex:1}
+  .glass-app #home .bom-legend button {font-size:11px;padding:8px 0;gap:4px;grid-template-columns:1fr auto}
+  .glass-app #home .bom-legend button strong {font-size:11px}
+  .glass-app #home .bom-legend button small {font-size:10px;line-height:1.5;padding-left:0}
+  .glass-app #home .donut-center strong {font-size:19px}
+  .glass-app #home .donut-center span {font-size:10px;max-width:110px}
+  .glass-app #home .donut-center small {font-size:9px;max-width:105px}
+  .glass-app #home .bom-footer {padding:10px 14px;font-size:10px}
+  .glass-app #home .insights-grid .studio-panel {padding:14px}
+  .glass-app #home .vehicle-heading {padding-bottom:5px}
+  .glass-app #home .vehicle-heading h3 {font-size:15px;margin-top:3px}
+  .glass-app #home .vehicle-stage {height:190px}
+  .glass-app #home .vehicle-caption {padding:6px 2px 8px;min-height:50px}
+  .glass-app #home .vehicle-cost {font-size:23px}
+  .glass-app #home .vehicle-controls {padding-top:7px}
+  .glass-app #home .studio-panel .recent-header {margin-top:10px;padding-top:8px;font-size:11px}
+  .glass-app #home .studio-panel .activity-row {font-size:10px;padding:3px 0}
+  .glass-app #home .sponsor-panel .panel-heading {padding-top:15px}
+  .glass-app #home .sponsor-panel .sponsor-row {padding:10px 0;margin:0 14px;font-size:12px}
+  .glass-app #home .sponsor-panel .sponsor-note {margin:8px 14px 12px;padding:7px 9px;font-size:10px}
+  .glass-app #home .glass-utility .panel-heading {padding:16px 17px 0}
+  .glass-app #home .glass-utility .task-row {padding:11px 0}
+  .glass-app #home .glass-utility .supplier-row {padding:11px 0}
+  .glass-app #home .glass-utility .budget-total {margin:12px 17px;font-size:11px}
+  .glass-app #home .glass-utility .budget-total strong {font-size:26px}
+  .glass-app #home .glass-utility .budget-legend {margin:11px 17px;gap:7px}
+  .glass-app #home .glass-utility .budget-row,.glass-app #home .glass-utility .mini-table-head {padding:7px 0}
+}
+@media(min-width:1101px) and (max-width:1390px) {
+  .glass-app #home .glass-overview-body {flex-wrap:wrap}
+  .glass-app #home .glass-balance {flex:1 0 45%}
+  .glass-app #home .glass-orbits {order:2;flex:1 0 100%}
+  .glass-app #home .glass-orbit {width:108px;height:108px}
+  .glass-app #home .glass-overview-actions {flex-direction:row}
+  .glass-app #home .glass-balance>strong {font-size:33px}
+  .glass-app #home .bom-body {flex-direction:column}
+  .glass-app #home .bom-body .donut-wrap {width:155px;max-width:155px}
+  .glass-app #home .bom-body .bom-legend {width:100%;max-height:180px}
+  .glass-app #home .vehicle-stage {height:215px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .glass-app *,.glass-app *:before,.glass-app *:after {animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+@media print {
+  body.glass-app {background:#fff;color:#111}
+  .glass-app .sidebar,.glass-app .topbar,.glass-app .glass-tooltip,.glass-app .glass-quick-actions {display:none!important}
+  .glass-app .shell {margin:0;padding:0}
+  .glass-app .suite-card,.glass-app .suite-metric,.glass-app .panel {box-shadow:none;background:white;backdrop-filter:none;border:1px solid #ddd}
+  .glass-app .glass-home-grid {display:block}
+  .glass-app .suite-table-scroll {overflow:visible;border:0}
+  .glass-app .suite-table th {position:static}
+}

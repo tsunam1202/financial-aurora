@@ -1,0 +1,2 @@
+# Preserve imported bytes and reproducible release hashes on every platform.
+* -text

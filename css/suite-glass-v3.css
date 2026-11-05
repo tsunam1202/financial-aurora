@@ -1,0 +1,383 @@
+/* Business workspace visual system. Homepage and navigation keep their verified layout. */
+.glass-app #suitePage {
+  --v3-ink:#263149; --v3-muted:#657087; --v3-line:#dce3ef;
+  --v3-purple:#65277c; --v3-light:#f5f7fd;
+  max-width:1760px;padding:18px 26px 28px;color:var(--v3-ink);
+  font-size:13px;line-height:1.65;
+}
+.glass-app #suitePage .suite-head {align-items:center;gap:24px;margin:0 0 18px;padding:0 2px 14px;border-bottom:1px solid #ffffffb8}
+.glass-app #suitePage .suite-head .eyebrow {display:inline-flex;align-items:center;gap:8px;font-size:9px;font-weight:600;letter-spacing:1.6px;color:#827496}
+.glass-app #suitePage .suite-head .eyebrow::before {content:'';width:5px;height:5px;border-radius:50%;background:#9354c4;box-shadow:0 0 0 4px #9354c411}
+.glass-app #suitePage .suite-head h1 {font-size:26px;line-height:1.35;font-weight:650;letter-spacing:-.8px;margin:6px 0 6px;color:#202638}
+.glass-app #suitePage .suite-head p {font-size:12px;line-height:1.8;max-width:760px;color:var(--v3-muted)}
+.glass-app #suitePage .suite-actions {gap:8px;align-items:center}
+.glass-app #suitePage .suite-head>.suite-actions:empty {display:none}
+.glass-app #suitePage .suite-metrics {gap:12px;margin:0 0 18px}
+.glass-app #suitePage .suite-metric {position:relative;min-width:0;min-height:108px;border-radius:18px;padding:14px 20px;background:linear-gradient(125deg,#ffffffd9,#f7f8ffb5);border:1px solid #ffffffea;box-shadow:0 8px 26px #455c8a06,inset 0 1px #fff;backdrop-filter:blur(18px)}
+.glass-app #suitePage .suite-metric::after {content:'';position:absolute;top:18px;right:18px;width:6px;height:6px;border-radius:50%;background:#baabd0;box-shadow:0 0 0 4px #bca6d410}
+.glass-app #suitePage .suite-metric>span {font-size:12px;font-weight:500;letter-spacing:.1px;color:#68738b;padding-right:16px}
+.glass-app #suitePage .suite-metric>strong {font-size:27px;line-height:1.2;font-weight:620;letter-spacing:-.8px;margin:10px 0 6px;color:#49335e;font-variant-numeric:tabular-nums}
+.glass-app #suitePage .suite-metric>strong.v3-text-value {font-size:23px;line-height:1.4;letter-spacing:-.4px}
+.glass-app #suitePage .suite-metric>small {display:block;line-height:1.6;font-size:11px;color:#748096;min-height:0}
+.glass-app #suitePage .suite-metric>small:empty {display:none}
+.glass-app #suitePage .suite-metric.trade-cash-metric {background:radial-gradient(ellipse at 100% 0%,#c6a8e142,transparent 62%),linear-gradient(125deg,#65277c,#76518c);border-color:#a77bb4;box-shadow:inset 0 1px #ffffff45,0 8px 24px #65277c13}
+.glass-app #suitePage .suite-metric.trade-cash-metric::after {background:#f5eaff;box-shadow:0 0 0 4px #ffffff12}
+.glass-app #suitePage .suite-card {border:1px solid #fffffff0;border-radius:20px;padding:21px 22px;margin-bottom:18px;background:linear-gradient(135deg,#fffffff0,#f7f9ffdc);box-shadow:0 12px 32px #324d7706,inset 0 1px #fff;backdrop-filter:blur(16px);min-width:0}
+.glass-app #suitePage .suite-card h2 {font-size:16px;font-weight:600;letter-spacing:-.25px;line-height:1.5;margin-bottom:18px;color:#2e3850}
+.glass-app #suitePage .suite-card h3 {font-size:14px;font-weight:600;color:#36435c}
+.glass-app #suitePage .suite-split {grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px;align-items:stretch}
+.glass-app #suitePage .suite-note {display:block;font-size:12px;line-height:1.8;color:#657087;background:linear-gradient(110deg,#eee7f8ba,#edf2faac);border:1px solid #ffffffb8;border-left:3px solid #aa83c5;border-radius:12px;padding:12px 15px;margin:0 0 18px;overflow-wrap:anywhere}
+.glass-app #suitePage .suite-note.sku-link-note {display:flex;border-left-width:3px;gap:15px}
+.glass-app #suitePage :is(.suite-help,.suite-footer-note,.trade-footnote,.trade-explanation) {font-size:12px;line-height:1.85;color:var(--v3-muted)}
+.glass-app #suitePage .suite-footer-note {font-size:10px;letter-spacing:.3px;margin:22px 2px 0;color:#8590a3}
+.glass-app #suitePage .trade-explanation {margin:0 0 15px}
+.glass-app #suitePage .trade-kicker,.glass-app #suitePage .bom-kicker {font-size:9px;font-weight:600;letter-spacing:1.6px;color:#8b76a4;margin-bottom:5px}
+.glass-app #suitePage :is(.trade-card-heading,.bom-card-title,.sku-section-head) {gap:14px;align-items:center;margin-bottom:14px}
+.glass-app #suitePage :is(.trade-card-heading,.bom-card-title,.sku-section-head) h2 {margin:0}
+.glass-app #suitePage :is(.trade-card-heading,.bom-card-title)>small {font-size:11px;color:#7c879b}
+
+/* Compact workflow rail: enough context, with the working table brought forward. */
+.glass-app #suitePage .trade-flow {display:grid;grid-template-columns:repeat(6,minmax(0,1fr));border:1px solid #ffffffd9;border-radius:16px;background:#ffffff65;gap:0;margin:0 0 16px;box-shadow:0 6px 24px #4d5a7a04;overflow:hidden}
+.glass-app #suitePage .trade-flow>button {position:relative;padding:10px 14px;min-height:66px;gap:4px;background:transparent;border-right:1px solid #dde4efba;transition:background .2s,box-shadow .2s}
+.glass-app #suitePage .trade-flow>button:last-child {border-right:0}
+.glass-app #suitePage .trade-flow small {position:absolute;top:12px;right:12px;display:grid;place-items:center;width:21px;height:21px;border-radius:50%;font-size:9px;letter-spacing:0;color:#8e91aa;background:#e7eaf582}
+.glass-app #suitePage .trade-flow strong {font-size:12px;line-height:21px;font-weight:600;color:#546078;padding-right:24px}
+.glass-app #suitePage .trade-flow span {font-size:10px;line-height:1.7;color:#7c879b}
+.glass-app #suitePage .trade-flow>button:hover {background:#ffffffa1}
+.glass-app #suitePage .trade-flow>button.v3-current-step {background:linear-gradient(135deg,#f1e8f7cc,#fbfaffb0);box-shadow:inset 0 -2px #9565b7}
+.glass-app #suitePage .trade-flow>button.v3-current-step strong {color:#65277c}
+.glass-app #suitePage .trade-flow>button.v3-current-step small {background:#65277c;color:#fff}
+.glass-app #suitePage .trade-toolbar {gap:12px;padding:0;margin-bottom:12px;border:0;align-items:center}
+.glass-app #suitePage :is(.trade-tabs,.bom-tabs,.suite-pill-row) {display:flex;gap:4px;flex-wrap:wrap;align-items:center;padding:4px;border:1px solid #ffffffce;border-radius:12px;background:#e7ebf4ab;width:fit-content;max-width:100%}
+.glass-app #suitePage :is(.trade-tabs,.bom-tabs,.suite-pill-row)>button {border:0;padding:8px 13px;min-height:34px;border-radius:9px;font-size:12px;font-weight:500;color:#6e7990;background:transparent;transition:background .2s,color .2s,box-shadow .2s;white-space:nowrap}
+.glass-app #suitePage :is(.trade-tabs,.bom-tabs,.suite-pill-row)>button:hover {background:#ffffff87;color:#65277c}
+.glass-app #suitePage :is(.trade-tabs,.bom-tabs,.suite-pill-row)>button.active {background:#fffffff2;color:#65277c;box-shadow:0 2px 7px #47577b0c,inset 0 0 0 1px #ffffffc9}
+.glass-app #suitePage .suite-tools {gap:10px;align-items:center;margin:0 0 15px;min-width:0}
+.glass-app #suitePage .suite-tools :is(input,select),.glass-app #suitePage .bom-filters :is(input,select) {min-height:38px;padding:8px 12px;font-size:12px;color:#35415a;border:1px solid #dce3ee;background:#ffffffd9;border-radius:10px;box-shadow:inset 0 1px 2px #31466c03;transition:border-color .2s,box-shadow .2s}
+.glass-app #suitePage .suite-tools input {width:300px}
+.glass-app #suitePage .suite-tools input::placeholder,.glass-app #suitePage .bom-filters input::placeholder {color:#909aae}
+.glass-app #suitePage .suite-tools small {font-size:11px;color:#8490a3}
+.glass-app #suitePage .trade-search {padding:0;margin-bottom:16px}
+.glass-app #suitePage .trade-search input {width:345px}
+.glass-app #suitePage .bom-view-toolbar {margin-bottom:16px;gap:14px}
+.glass-app #suitePage .bom-filters {padding:13px;border-radius:12px;background:#edf1f780;border:1px solid #e1e6f0;margin-bottom:15px}
+.glass-app #suitePage .bom-filters label>span {font-size:11px;color:#788398}
+
+/* Actual fields remain present; large ledgers scroll within a clearly bounded surface. */
+.glass-app #suitePage .suite-table-scroll {max-width:100%;overflow:auto;overscroll-behavior-inline:contain;scrollbar-gutter:auto;border:1px solid #dfe5ef;border-radius:13px;background:#ffffffd9;scrollbar-width:thin;scrollbar-color:#b9b0cc #edf1f8;position:relative}
+.glass-app #suitePage .suite-table-scroll.v3-long-table {max-height:min(650px,66vh)}
+.glass-app #suitePage .suite-table {font-size:13px;color:#39465e;border-collapse:separate;border-spacing:0;line-height:1.65;width:100%;font-variant-numeric:tabular-nums}
+.glass-app #suitePage .suite-table :is(th,td) {padding:12px 14px;border-bottom:1px solid #e6ebf3;vertical-align:middle}
+.glass-app #suitePage .suite-table th {height:43px;background:#edf1f8;color:#6d7990;font-size:11px;font-weight:550;white-space:nowrap;position:sticky;top:0;z-index:2;border-bottom-color:#dce3ee}
+.glass-app #suitePage .suite-table td {background:#ffffff88;font-size:13px;line-height:1.65;transition:background .15s}
+.glass-app #suitePage .suite-table tbody tr:nth-child(even)>td {background:#f7f9fd99}
+.glass-app #suitePage .suite-table tbody tr:hover>td {background:#f1edf8d9}
+.glass-app #suitePage .suite-table tbody tr:last-child>td {border-bottom:0}
+.glass-app #suitePage .suite-table td small {display:block;margin-top:4px;font-size:11px;line-height:1.6;color:#7d889c}
+.glass-app #suitePage .suite-table td>strong {font-weight:550;color:#36435d}
+.glass-app #suitePage .suite-table :is(.v3-amount,.trade-number,.bom-numeric) {text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+.glass-app #suitePage .suite-table td.v3-amount {font-weight:500;color:#3f3d5a}
+.glass-app #suitePage .suite-table td.v3-amount small {font-weight:400}
+.glass-app #suitePage .trade-product-cell {min-width:195px;max-width:330px;line-height:1.65;overflow-wrap:anywhere}
+.glass-app #suitePage .trade-table td small {max-width:300px}
+.glass-app #suitePage .trade-row-actions {gap:5px;min-width:80px}
+.glass-app #suitePage .suite-table .text-button {display:inline-flex;align-items:center;border-radius:6px;min-height:26px;padding:2px 6px;margin-right:5px;font-size:11px;line-height:1.4;color:#805494;transition:background .15s,color .15s}
+.glass-app #suitePage .suite-table .text-button:hover {background:#eae0f3;color:#59206f}
+.glass-app #suitePage .trade-row-actions .text-button {margin:0;padding:3px 0;justify-content:flex-start}
+.glass-app #suitePage .trade-table-foot {font-size:11px;line-height:1.6;padding-top:13px;gap:12px;color:#8390a4}
+.glass-app #suitePage .trade-table-foot strong {color:#5c4273;font-weight:600}
+.glass-app #suitePage .v3-table-hint {display:none;align-items:center;justify-content:flex-end;gap:6px;font-size:10px;line-height:18px;color:#8c7c9e;padding-top:6px;pointer-events:none}
+.glass-app #suitePage .v3-table-hint::before {content:'↔';font-size:14px;line-height:1;color:#997bb2}
+.glass-app #suitePage .suite-table-scroll.v3-scrollable+.v3-table-hint {display:flex}
+.glass-app #suitePage .suite-empty {height:128px;min-width:220px;padding:30px 22px!important;background:linear-gradient(135deg,#fafbfe,#f4f1f9)!important;color:#8490a4!important;font-size:12px!important;font-weight:400!important;white-space:normal;line-height:1.9!important;text-align:center}
+.glass-app #suitePage .suite-empty::before {content:'—';display:block;width:36px;height:36px;border:1px solid #e0d9eb;border-radius:11px;margin:0 auto 8px;line-height:32px;font-size:19px;color:#a08db1;background:#ffffffc2}
+.glass-app #suitePage :is(.suite-tag,.trade-pill,.bom-type) {font-size:10px;font-weight:500;line-height:1.5;padding:4px 8px;border-radius:6px;background:#eee7f7;color:#7d5a94;border:1px solid #e6def1;white-space:nowrap}
+.glass-app #suitePage :is(.suite-tag.green,.trade-pill.green) {background:#e9f4ef;color:#377a63;border-color:#d4eade}
+.glass-app #suitePage :is(.suite-tag.amber,.trade-pill.amber) {background:#fff5e3;color:#977333;border-color:#f3e6c9}
+.glass-app #suitePage .suite-tag.red {background:#fcf0f1;color:#ac5867;border-color:#f1dae0}
+.glass-app #suitePage .trade-pill.neutral {background:#edf0f6;color:#7c879a;border-color:#e3e8f0}
+.glass-app #suitePage .trade-progress {height:4px;border-radius:8px;background:#e8e7f1;margin-top:7px}
+.glass-app #suitePage .trade-progress span {background:linear-gradient(90deg,#9364af,#c1a8d3)}
+.glass-app #suitePage .trade-status-stack {gap:6px}
+
+/* Consistent controls and deliberate destructive-action separation. */
+.glass-app #suitePage .button {min-height:36px;border:1px solid #d8dfec;border-radius:10px;background:#ffffffc9;color:#58657e;font-size:12px;font-weight:500;padding:8px 13px;box-shadow:0 2px 5px #33486a04;transition:background .18s,border-color .18s,box-shadow .18s}
+.glass-app #suitePage .button:hover {background:#fff;border-color:#bca2ce;box-shadow:0 3px 9px #65277c09}
+.glass-app #suitePage .button.primary {background:linear-gradient(125deg,#71328a,#65277c);border-color:#71328a;color:#fff;box-shadow:0 3px 9px #65277c1a,inset 0 1px #ffffff1a}
+.glass-app #suitePage .button.primary:hover {background:#7c3b94;border-color:#7c3b94}
+.glass-app #suitePage .button[data-op='reset'] {background:transparent;border-color:transparent;color:#a06773;box-shadow:none;margin-left:7px}
+.glass-app #suitePage .button[data-op='reset']:hover {background:#faecef;border-color:#ead0d7;color:#a04e60}
+.glass-app #suitePage :is(button,a,input,select,textarea):focus-visible {outline:2px solid #a67ec1;outline-offset:3px}
+.glass-app #suitePage .suite-table-scroll:focus-visible {outline:2px solid #b59bca;outline-offset:3px}
+.glass-app #suitePage .form-grid {gap:18px}
+.glass-app #suitePage .suite-form label {font-size:12px;color:#6d7890;gap:8px}
+.glass-app #suitePage .suite-form :is(input,select,textarea) {border:1px solid #dce3ee;background:#ffffffd9;border-radius:10px;padding:10px 12px;min-height:42px;color:#35415a;font-size:13px;box-shadow:inset 0 1px 3px #31466c03}
+.glass-app #suitePage .suite-form textarea {min-height:100px}
+.glass-app #suitePage .suite-form :is(input,select,textarea):focus {border-color:#b494c9;box-shadow:0 0 0 3px #a780bd0f}
+.glass-app #suitePage .suite-state {font-size:13px;line-height:1.75;padding:15px 0;border-bottom:1px solid #e1e7f0;align-items:center}
+.glass-app #suitePage .suite-state small {font-size:11px;color:#7e8ba0;margin-top:4px}
+.glass-app #suitePage .suite-state strong {font-weight:600;color:#4d3a64}
+.glass-app #suitePage .suite-state .text-button {font-size:12px;color:#895aa2;padding:5px 0}
+.glass-app #suitePage .suite-log {max-height:360px;padding:0 2px;scrollbar-width:thin;scrollbar-color:#c6bbd5 transparent}
+.glass-app #suitePage .suite-log .suite-state {position:relative;padding-left:18px}
+.glass-app #suitePage .suite-log .suite-state::before {content:'';position:absolute;left:0;top:22px;width:5px;height:5px;border-radius:50%;background:#aa8bc2;box-shadow:0 0 0 3px #eee7f7}
+.glass-app #suitePage .suite-bars {gap:22px}
+.glass-app #suitePage .suite-bar-label {font-size:12px;line-height:1.7;margin-bottom:9px;color:#64718a;align-items:baseline}
+.glass-app #suitePage .suite-bar-label strong {font-size:13px;font-weight:600;color:#5b426e;font-variant-numeric:tabular-nums}
+.glass-app #suitePage .suite-bar-track {height:10px;border-radius:7px;background:#e7eaf3;box-shadow:inset 0 1px 2px #50648206}
+.glass-app #suitePage .suite-bar-track>span {border-radius:7px;background:linear-gradient(90deg,#71348b,#b797ce);box-shadow:inset 0 1px #ffffff29}
+.glass-app #suitePage .suite-bars>div:nth-child(2) .suite-bar-track>span {background:linear-gradient(90deg,#917eb3,#bbb0d8)}
+.glass-app #suitePage .suite-bars>div:nth-child(3) .suite-bar-track>span {background:linear-gradient(90deg,#b49b69,#d6c298)}
+.glass-app #suitePage[data-view='research'] .suite-split>.suite-card:first-child {background:radial-gradient(ellipse at 10% 0%,#e9ddf99c,transparent 60%),linear-gradient(135deg,#fffffff0,#f0f4fcce)}
+.glass-app #suitePage[data-view='research'] .suite-bars {gap:25px;padding:6px 0 12px}
+.glass-app #suitePage[data-view='research'] .suite-bar-track {height:13px}
+.glass-app #suitePage[data-view='research'] .suite-bar-label strong {font-size:16px;font-weight:600}
+.glass-app #suitePage[data-view='research'] .suite-split>.suite-card:last-child .suite-help {border-top:0;background:#edf0f8b0;border-radius:10px;padding:12px;margin-bottom:0}
+.glass-app #suitePage[data-view='feishu'] .suite-state>span:first-child {max-width:72%}
+.glass-app #suitePage[data-view='feishu'] .suite-split>.suite-card:first-child {background:linear-gradient(130deg,#fffffff0,#eaf1fbdb)}
+.glass-app #suitePage[data-view='settings'] .suite-split>.suite-card:last-child .suite-help {line-height:1.95}
+
+/* Workflow overview, inventory and original catalogue use the same scale. */
+.glass-app #suitePage .trade-next-grid {gap:12px}
+.glass-app #suitePage .trade-next-grid>button {padding:18px;border:1px solid #e1e5ef;background:linear-gradient(140deg,#ffffffdc,#edf1fab5);border-radius:14px;gap:8px;transition:background .2s,border-color .2s}
+.glass-app #suitePage .trade-next-grid>button:hover {background:#f3edf9;border-color:#cfb8de}
+.glass-app #suitePage .trade-next-grid span {font-size:12px;color:#738098}
+.glass-app #suitePage .trade-next-grid strong {font-size:25px;line-height:1.35;color:#5b3b70;font-weight:600;letter-spacing:-.6px}
+.glass-app #suitePage .trade-next-grid small {font-size:11px;line-height:1.8;color:#7b879b}
+.glass-app #suitePage .trade-next-grid em {font-size:11px;font-weight:500;color:#8e64aa;margin-top:5px}
+.glass-app #suitePage .trade-rule-row {padding:14px 0;grid-template-columns:130px 1fr;border-color:#e2e7f0}
+.glass-app #suitePage .trade-rule-row>span,.glass-app #suitePage .trade-rule-row small {font-size:11px;color:#7a869a}
+.glass-app #suitePage .trade-rule-row strong {font-size:13px;font-weight:550;color:#5b456d}
+.glass-app #suitePage .trade-trace-demo {margin:16px 0;gap:8px}
+.glass-app #suitePage .trade-trace-demo span {padding:7px 10px;font-size:11px;border:1px solid #e6ddf0;background:#f2ecf8;color:#825e98;border-radius:8px}
+.glass-app #suitePage .trade-check-grid {gap:10px}
+.glass-app #suitePage .trade-check-grid>div {padding:13px;background:#f5f8fbb3;border:1px solid #e0e7ee;border-radius:12px;font-size:12px;color:#63748a}
+.glass-app #suitePage .trade-check-grid small {font-size:11px;line-height:1.8;color:#7e8b9d}
+.glass-app #suitePage .sku-product {gap:13px;max-width:410px;min-width:240px;align-items:center;line-height:1.7}
+.glass-app #suitePage .sku-product img {width:72px;height:64px;background:linear-gradient(145deg,#fff,#edf1f8);border:1px solid #e6eaf2;border-radius:10px;padding:4px;object-fit:contain}
+.glass-app #suitePage .sku-product>span {font-weight:500;color:#3d4760}
+.glass-app #suitePage .sku-product small {font-size:10px;font-weight:400;color:#8690a4}
+.glass-app #suitePage .sku-request {padding:19px 0;border-color:#e2e7f0}
+.glass-app #suitePage .sku-request-head strong {font-size:13px;font-weight:600;color:#38445c}
+.glass-app #suitePage .sku-request-items {font-size:12px;line-height:1.8;background:#f0f3f9b8;border-radius:10px;padding:12px 14px;margin:14px 0}
+.glass-app #suitePage .suite-link {font-size:11px;line-height:1.6;color:#9569b0;text-decoration:none;border-bottom:1px solid #d8c8e3;padding-bottom:1px}
+
+/* BOM reference content stays legible and all source fields remain available. */
+.glass-app #suitePage .bom-source-strip {font-size:11px;line-height:1.8;padding-bottom:14px;color:#79869b}
+.glass-app #suitePage .bom-source-strip small {font-size:10px;color:#8c98a9}
+.glass-app #suitePage .bom-system-layout {gap:20px}
+.glass-app #suitePage .bom-chart-ring {max-width:260px}
+.glass-app #suitePage .bom-ring-center strong {font-size:23px;letter-spacing:-.7px;color:#65277c}
+.glass-app #suitePage .bom-ring-center small {font-size:11px;color:#778399}
+.glass-app #suitePage .bom-ring-center span {font-size:9px;color:#8c97a9}
+.glass-app #suitePage .bom-system-legend button {padding:9px 7px;font-size:12px;line-height:1.65;color:#536079;border-color:#e5e9f2;border-radius:8px}
+.glass-app #suitePage .bom-system-legend button.active {background:#ede5f6aa;color:#65277c}
+.glass-app #suitePage .bom-system-legend button small {font-size:10px;color:#8a95a8;margin-top:3px}
+.glass-app #suitePage .bom-system-legend button strong {font-size:12px;font-weight:550}
+.glass-app #suitePage .bom-chart-foot {font-size:11px;line-height:1.8;margin-top:15px;padding-top:12px;color:#8390a2;border-color:#e0e5ef}
+.glass-app #suitePage .bom-rank-row {gap:10px}
+.glass-app #suitePage .bom-rank-number {width:20px;height:20px;display:grid;place-items:center;font-size:10px;background:#eef0f8;border-radius:6px;color:#9283a5}
+.glass-app #suitePage .bom-rank-name {font-size:12px!important;color:#67738b;line-height:1.6}
+.glass-app #suitePage .bom-rank-value strong {font-size:12px;color:#59406f;font-weight:550}
+.glass-app #suitePage .bom-rank-value small {font-size:10px;color:#8e99ab}
+.glass-app #suitePage .bom-rank-track {height:6px;background:#e9ebf4}
+.glass-app #suitePage .bom-rank-track>span {background:linear-gradient(90deg,#9366af,#bca4d0)}
+.glass-app #suitePage .bom-table-caption,.glass-app #suitePage .bom-pagination {font-size:11px;line-height:1.7;color:#808da2}
+.glass-app #suitePage .bom-table .bom-part-name {min-width:205px;max-width:300px}
+.glass-app #suitePage .bom-table .bom-part-name>button {font-size:13px;color:#5e426f}
+.glass-app #suitePage .bom-source-cell {font-size:10px!important;color:#8793a6!important;max-width:180px}
+.glass-app #suitePage .bom-pagination strong {font-size:11px;color:#786189}
+.glass-app #suitePage .bom-scenario-summary>div {padding:18px;background:linear-gradient(130deg,#f1edf8,#f3f6fc);border:1px solid #e2e2ed;border-radius:13px}
+.glass-app #suitePage .bom-scenario-summary span {font-size:12px;color:#7c869c;margin-bottom:9px}
+.glass-app #suitePage .bom-scenario-summary strong {font-size:27px;line-height:1.3;font-weight:600;color:#64437b;letter-spacing:-.7px}
+.glass-app #suitePage .bom-scenario-summary small {font-size:11px}
+.glass-app #suitePage :is(.bom-source-line,.bom-source-file,.bom-issue,.bom-reference-samples>div) {border-color:#e1e7ef}
+.glass-app #suitePage .bom-source-line {padding:13px 0;font-size:12px;color:#657188}
+.glass-app #suitePage .bom-source-line strong {font-size:13px;color:#554366;font-weight:550}
+.glass-app #suitePage .bom-source-file strong {font-size:12px;color:#55637d}
+.glass-app #suitePage .bom-source-file small {font-size:10px;color:#8894a7;line-height:1.8}
+.glass-app #suitePage .bom-source-file p,.glass-app #suitePage .bom-source-notes {font-size:12px;color:#768399;line-height:1.9}
+.glass-app #suitePage .bom-inline-note {font-size:12px;color:#7d889d;line-height:1.9}
+.glass-app #suitePage .bom-issue strong {font-size:12px;color:#987944}
+.glass-app #suitePage .bom-issue small,.glass-app #suitePage .bom-reference-samples small {font-size:10px;color:#8995a8;line-height:1.8}
+.glass-app #suitePage .bom-reference-count {font-size:28px;color:#73508b}
+.glass-app #suitePage .bom-reference-count small {font-size:11px;color:#8390a3}
+.glass-app #suitePage .bom-reference-samples strong {font-size:11px;color:#68768d}
+
+/* Dialogs are scoped to business routes, including forms, details and statements. */
+.glass-app:has(#suitePage:not([hidden])) #dialog {padding:0;width:min(820px,calc(100vw - 40px));max-height:88dvh;border-radius:22px;border:1px solid #fffffff0;background:linear-gradient(145deg,#fffffff8,#f3f5fdf5);color:#34415a;box-shadow:0 25px 100px #27344c33;backdrop-filter:blur(22px)}
+.glass-app:has(#suitePage:not([hidden])) #dialog::backdrop {background:#24314c3b;backdrop-filter:blur(8px)}
+.glass-app:has(#suitePage:not([hidden])) #dialog .dialog-header {position:sticky;top:0;z-index:8;margin:0;padding:22px 25px 18px;background:#f7f8fdeb;backdrop-filter:blur(16px);border-bottom:1px solid #e2e6f1;gap:20px}
+.glass-app:has(#suitePage:not([hidden])) #dialog .dialog-header h2 {font-size:21px;line-height:1.5;letter-spacing:-.5px;color:#30394f;margin-top:4px}
+.glass-app:has(#suitePage:not([hidden])) #dialog .dialog-header .eyebrow {font-size:9px;color:#8d7c9d;letter-spacing:1.5px}
+.glass-app:has(#suitePage:not([hidden])) #dialog .dialog-header .icon-button {background:#ececf5;border:1px solid #e0dfea;border-radius:9px;width:31px;height:31px;flex:0 0 auto}
+.glass-app:has(#suitePage:not([hidden])) #dialogContent {padding:22px 25px 25px}
+.glass-app:has(#suitePage:not([hidden])) #dialog .suite-note,.glass-app:has(#suitePage:not([hidden])) #dialog .dialog-note {font-size:12px;line-height:1.85;padding:12px 14px;border-radius:11px;background:#ede8f6a8;border:1px solid #e2daed;color:#7a678c;margin-top:0}
+.glass-app:has(#suitePage:not([hidden])) #dialog .form-grid {gap:17px}
+.glass-app:has(#suitePage:not([hidden])) #dialog label {font-size:12px;line-height:1.7;color:#707c91}
+.glass-app:has(#suitePage:not([hidden])) #dialog :is(input,select,textarea) {border:1px solid #dbe2ef;border-radius:10px;min-height:41px;background:#ffffffdf;color:#34415a;font-size:13px;padding:10px 12px}
+.glass-app:has(#suitePage:not([hidden])) #dialog :is(input,select,textarea):focus {border-color:#b59acc;outline-color:#b59acc}
+.glass-app:has(#suitePage:not([hidden])) #dialog .detail-row {padding:13px 2px;border-color:#e2e7f0;font-size:13px;line-height:1.7;align-items:baseline}
+.glass-app:has(#suitePage:not([hidden])) #dialog .detail-row>span {color:#7d879c}
+.glass-app:has(#suitePage:not([hidden])) #dialog .detail-row>strong {font-weight:550;color:#4f3e63;overflow-wrap:anywhere;text-align:right}
+.glass-app:has(#suitePage:not([hidden])) #dialog .detail-row small {font-size:11px;line-height:1.8;color:#8b95a7}
+.glass-app:has(#suitePage:not([hidden])) #dialog .dialog-actions {gap:9px;margin-top:22px;padding-top:17px;border-top:1px solid #e1e7f0;flex-wrap:wrap}
+.glass-app:has(#suitePage:not([hidden])) #dialog .dialog-actions .button {font-size:12px;min-height:37px;border-radius:10px;padding:8px 14px}
+.glass-app:has(#suitePage:not([hidden])) #dialog .statement-table-wrap {border:1px solid #e0e5ef;border-radius:12px;background:#fff;overflow:auto;scrollbar-width:thin}
+.glass-app:has(#suitePage:not([hidden])) #dialog .statement-table {font-size:12px;color:#4b5872}
+.glass-app:has(#suitePage:not([hidden])) #dialog .statement-table :is(th,td) {padding:12px;border-color:#e5eaf2}
+.glass-app:has(#suitePage:not([hidden])) #dialog .statement-table thead th {background:#edf1f8;color:#768298;font-size:11px}
+.glass-app:has(#suitePage:not([hidden])) #dialog .statement-formula {font-size:12px;line-height:1.85;color:#7f8a9e}
+.glass-app:has(#suitePage:not([hidden])) #dialog .trade-detail-section {border-color:#e1e6ef}
+.glass-app:has(#suitePage:not([hidden])) #dialog .v3-table-hint {display:none;font-size:10px;line-height:1.7;text-align:right;color:#8e799f;padding-top:6px}
+.glass-app:has(#suitePage:not([hidden])) #dialog .v3-scrollable+.v3-table-hint {display:block}
+
+@media(min-width:1201px) {
+  .glass-app #suitePage .suite-table-scroll.v3-wide-table .suite-table td:last-child:has(button) {position:sticky;right:0;z-index:1;background:#fafbfe;box-shadow:-5px 0 9px #45537304}
+  .glass-app #suitePage .suite-table-scroll.v3-wide-table .suite-table th:last-child {position:sticky;right:0;z-index:3}
+}
+@media(max-width:1200px) {
+  .glass-app #suitePage {padding:20px 18px 24px}
+  .glass-app #suitePage .suite-head {gap:16px}
+  .glass-app #suitePage .suite-metric {padding:16px}
+  .glass-app #suitePage .suite-metric>strong {font-size:24px}
+  .glass-app #suitePage .trade-flow {grid-template-columns:repeat(3,minmax(0,1fr))}
+  .glass-app #suitePage .trade-flow>button {min-height:76px;border-bottom:1px solid #e1e6f0}
+  .glass-app #suitePage .trade-flow>button:nth-child(n+4) {border-bottom:0}
+  .glass-app #suitePage .suite-split {grid-template-columns:1fr}
+  .glass-app #suitePage .suite-split>.suite-card {margin-bottom:0}
+  .glass-app #suitePage .suite-split {margin-bottom:18px}
+}
+@media(max-width:900px) {
+  .glass-app #suitePage {padding:20px 16px 24px}
+  .glass-app #suitePage .suite-head {align-items:flex-start}
+  .glass-app #suitePage .suite-head h1 {font-size:25px}
+  .glass-app #suitePage .suite-head>.suite-actions {justify-content:flex-end}
+  .glass-app #suitePage .trade-toolbar {align-items:flex-start}
+  .glass-app #suitePage .trade-tabs {width:100%;flex-wrap:wrap}
+  .glass-app #suitePage .suite-card {padding:19px 17px}
+  .glass-app #suitePage .bom-filters {gap:10px}
+  .glass-app #suitePage .bom-source-grid {gap:0}
+}
+@media(max-width:600px) {
+  .glass-app #suitePage {padding:19px 11px 24px;line-height:1.7}
+  .glass-app #suitePage .suite-head {flex-direction:column;gap:14px;padding:0 2px 15px;margin-bottom:15px}
+  .glass-app #suitePage .suite-head .eyebrow {font-size:8px;letter-spacing:1.4px}
+  .glass-app #suitePage .suite-head h1 {font-size:24px;line-height:1.4;margin:6px 0}
+  .glass-app #suitePage .suite-head p {font-size:12px;line-height:1.8}
+  .glass-app #suitePage .suite-head>.suite-actions {justify-content:flex-start;width:100%;gap:7px}
+  .glass-app #suitePage .suite-metrics {gap:9px;margin-bottom:14px}
+  .glass-app #suitePage .suite-metric {padding:14px 12px;min-height:109px;border-radius:16px}
+  .glass-app #suitePage .suite-metric::after {width:4px;height:4px;top:17px;right:12px;box-shadow:0 0 0 3px #bca6d410}
+  .glass-app #suitePage .suite-metric>span {font-size:11px;padding-right:9px}
+  .glass-app #suitePage .suite-metric>strong {font-size:22px;line-height:1.25;letter-spacing:-.8px;margin:9px 0 6px;overflow-wrap:normal;word-break:normal}
+  .glass-app #suitePage .suite-metric>strong.v3-text-value {font-size:20px;line-height:1.4}
+  .glass-app #suitePage .suite-metric>small {font-size:10px;line-height:1.75}
+  .glass-app #suitePage .suite-card {padding:17px 14px;border-radius:17px;margin-bottom:15px}
+  .glass-app #suitePage .suite-card h2 {font-size:15px;line-height:1.6}
+  .glass-app #suitePage .suite-note {font-size:11px;line-height:1.9;padding:11px 12px;margin-bottom:15px}
+  .glass-app #suitePage .suite-note.sku-link-note {flex-direction:column;align-items:flex-start;gap:11px}
+  .glass-app #suitePage .sku-link-note>div {width:100%;gap:7px;flex-wrap:wrap}
+  .glass-app #suitePage .trade-flow {display:grid;grid-template-columns:repeat(6,145px);overflow-x:auto;overscroll-behavior-inline:contain;scrollbar-width:thin;scrollbar-color:#cabbd9 transparent;border-radius:14px;margin-bottom:13px}
+  .glass-app #suitePage .trade-flow>button {min-height:78px;padding:12px;border-bottom:0}
+  .glass-app #suitePage .trade-flow strong {font-size:11px}
+  .glass-app #suitePage .trade-flow small {width:18px;height:18px;font-size:8px;right:10px;top:12px}
+  .glass-app #suitePage .trade-flow span {font-size:10px;line-height:1.8}
+  .glass-app #suitePage .trade-toolbar {flex-direction:column;gap:9px;margin-bottom:12px}
+  .glass-app #suitePage .trade-toolbar>.button {align-self:flex-end}
+  .glass-app #suitePage :is(.trade-tabs,.bom-tabs) {width:100%;padding:4px;gap:3px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:thin;scrollbar-color:#cabbda transparent;justify-content:flex-start}
+  .glass-app #suitePage :is(.trade-tabs,.bom-tabs)>button {flex:0 0 auto;font-size:11px;padding:7px 11px;min-height:32px}
+  .glass-app #suitePage .suite-pill-row {gap:3px;padding:4px}
+  .glass-app #suitePage .suite-pill-row>button {font-size:11px;padding:7px 9px;min-height:32px}
+  .glass-app #suitePage .suite-tools {gap:9px;align-items:center;margin-bottom:13px}
+  .glass-app #suitePage .suite-tools input {width:100%;min-width:0;flex:1 0 100%}
+  .glass-app #suitePage .suite-tools select {flex:0 1 auto;max-width:100%}
+  .glass-app #suitePage .suite-tools small {font-size:10px;margin-left:0;line-height:1.7}
+  .glass-app #suitePage .suite-tools>.text-button {margin-left:auto;font-size:11px}
+  .glass-app #suitePage .trade-search {gap:7px;margin-bottom:13px}
+  .glass-app #suitePage .trade-search input {width:100%}
+  .glass-app #suitePage .trade-card-heading,.glass-app #suitePage .bom-card-title {gap:10px;align-items:flex-start;flex-wrap:wrap}
+  .glass-app #suitePage .trade-card-heading>.button {font-size:11px;padding:7px 10px;min-height:33px}
+  .glass-app #suitePage .trade-kicker,.glass-app #suitePage .bom-kicker {font-size:8px;line-height:1.6;letter-spacing:1.3px}
+  .glass-app #suitePage .trade-explanation {font-size:11px;line-height:1.85;margin-bottom:13px}
+  .glass-app #suitePage .suite-table {font-size:12px}
+  .glass-app #suitePage .suite-table th {font-size:11px;height:40px;padding:11px 12px}
+  .glass-app #suitePage .suite-table td {font-size:12px;line-height:1.75;padding:12px}
+  .glass-app #suitePage .suite-table td small {font-size:10px;line-height:1.75;margin-top:4px}
+  .glass-app #suitePage .suite-table-scroll.v3-wide-table .suite-table {min-width:760px}
+  .glass-app #suitePage .suite-table-scroll.v3-long-table {max-height:520px}
+  .glass-app #suitePage .suite-table-scroll {border-radius:11px;box-shadow:inset -8px 0 12px #46547603}
+  .glass-app #suitePage .trade-product-cell {min-width:180px;max-width:260px}
+  .glass-app #suitePage .trade-table td small {max-width:240px}
+  .glass-app #suitePage .trade-table-foot {font-size:10px;gap:6px;line-height:1.8;padding-top:11px}
+  .glass-app #suitePage .suite-table .text-button {font-size:11px;min-height:28px}
+  .glass-app #suitePage .v3-table-hint {font-size:10px;justify-content:flex-start}
+  .glass-app #suitePage .suite-empty {font-size:11px!important;height:130px}
+  .glass-app #suitePage .button {font-size:11px;min-height:35px;padding:8px 11px;border-radius:9px}
+  .glass-app #suitePage .button[data-op='reset'] {margin-left:0}
+  .glass-app #suitePage .form-grid {grid-template-columns:1fr;gap:16px}
+  .glass-app #suitePage .suite-form label {font-size:12px}
+  .glass-app #suitePage .suite-form :is(input,select,textarea) {font-size:14px;min-height:43px}
+  .glass-app #suitePage .suite-state {font-size:12px;padding:14px 0;gap:12px}
+  .glass-app #suitePage .suite-state small {font-size:10px}
+  .glass-app #suitePage .suite-help {font-size:11px;line-height:1.95}
+  .glass-app #suitePage .suite-bar-label {font-size:11px;gap:8px;flex-wrap:wrap}
+  .glass-app #suitePage .suite-bar-label strong {font-size:12px}
+  .glass-app #suitePage[data-view='research'] .suite-bar-label strong {font-size:14px}
+  .glass-app #suitePage .suite-bars {gap:20px}
+  .glass-app #suitePage .trade-next-grid {gap:9px}
+  .glass-app #suitePage .trade-next-grid>button {padding:14px 12px;gap:7px}
+  .glass-app #suitePage .trade-next-grid strong {font-size:21px}
+  .glass-app #suitePage .trade-next-grid span {font-size:11px}
+  .glass-app #suitePage .trade-next-grid small {font-size:10px}
+  .glass-app #suitePage .trade-next-grid em {font-size:10px}
+  .glass-app #suitePage .trade-rule-row {grid-template-columns:110px 1fr}
+  .glass-app #suitePage .trade-rule-row strong {font-size:12px}
+  .glass-app #suitePage .trade-check-grid {gap:8px}
+  .glass-app #suitePage .trade-check-grid>div {font-size:11px;padding:11px}
+  .glass-app #suitePage .trade-check-grid small {font-size:10px}
+  .glass-app #suitePage .sku-product {min-width:225px;gap:10px}
+  .glass-app #suitePage .sku-product img {width:58px;height:55px;border-radius:8px}
+  .glass-app #suitePage .sku-product small {font-size:10px}
+  .glass-app #suitePage .bom-filters {padding:11px;gap:10px}
+  .glass-app #suitePage .bom-filters label>span {font-size:10px}
+  .glass-app #suitePage .bom-filters :is(input,select) {font-size:12px;min-height:38px}
+  .glass-app #suitePage .bom-chart-ring {max-width:250px}
+  .glass-app #suitePage .bom-ring-center strong {font-size:23px}
+  .glass-app #suitePage .bom-system-legend button {font-size:12px;padding:10px 6px}
+  .glass-app #suitePage .bom-system-legend button strong {font-size:12px}
+  .glass-app #suitePage .bom-system-legend button small {font-size:10px}
+  .glass-app #suitePage .bom-rank-name {font-size:11px!important}
+  .glass-app #suitePage .bom-rank-value strong {font-size:11px}
+  .glass-app #suitePage .bom-chart-foot {font-size:10px}
+  .glass-app #suitePage .bom-source-strip {font-size:10px;padding-bottom:13px}
+  .glass-app #suitePage .bom-table-caption,.glass-app #suitePage .bom-pagination {font-size:10px;line-height:1.8}
+  .glass-app #suitePage .bom-table .bom-part-name>button {font-size:12px}
+  .glass-app #suitePage .bom-source-line,.glass-app #suitePage .bom-source-file strong,.glass-app #suitePage .bom-source-notes,.glass-app #suitePage .bom-inline-note {font-size:11px}
+  .glass-app #suitePage .bom-scenario-summary strong {font-size:24px}
+  .glass-app #suitePage .bom-scenario-summary span {font-size:11px}
+  .glass-app #suitePage .bom-scenario-summary small {font-size:10px}
+  .glass-app:has(#suitePage:not([hidden])) #dialog {width:calc(100vw - 20px);max-height:92dvh;border-radius:18px}
+  .glass-app:has(#suitePage:not([hidden])) #dialog .dialog-header {padding:18px 16px 15px;gap:12px}
+  .glass-app:has(#suitePage:not([hidden])) #dialog .dialog-header h2 {font-size:18px}
+  .glass-app:has(#suitePage:not([hidden])) #dialogContent {padding:17px 16px 20px}
+  .glass-app:has(#suitePage:not([hidden])) #dialog .form-grid {grid-template-columns:1fr}
+  .glass-app:has(#suitePage:not([hidden])) #dialog :is(input,select,textarea) {font-size:14px;min-height:43px;max-width:100%}
+  .glass-app:has(#suitePage:not([hidden])) #dialog .detail-row {font-size:12px;gap:13px}
+  .glass-app:has(#suitePage:not([hidden])) #dialog .detail-row>span {flex:0 1 40%}
+  .glass-app:has(#suitePage:not([hidden])) #dialog .detail-row>strong {min-width:0;max-width:60%}
+  .glass-app:has(#suitePage:not([hidden])) #dialog .dialog-actions {gap:8px;margin-top:18px;padding-top:15px}
+  .glass-app:has(#suitePage:not([hidden])) #dialog .dialog-actions .button {font-size:11px;min-height:37px;padding:8px 12px}
+  .glass-app:has(#suitePage:not([hidden])) #dialog .suite-note,.glass-app:has(#suitePage:not([hidden])) #dialog .dialog-note {font-size:11px;padding:11px 12px}
+}
+@media(prefers-reduced-motion:reduce) {
+  .glass-app #suitePage :is(button,td,input,select,textarea) {transition:none!important}
+}
+@media print {
+  .glass-app #suitePage {padding:0;max-width:none;color:#222}
+  .glass-app #suitePage .suite-head {border:0}
+  .glass-app #suitePage :is(.suite-card,.suite-metric) {background:#fff;border:1px solid #d9dde5;box-shadow:none;backdrop-filter:none;break-inside:avoid}
+  .glass-app #suitePage .suite-table-scroll {max-height:none!important;overflow:visible;border:0}
+  .glass-app #suitePage .suite-table :is(th,td) {position:static!important;background:#fff!important;box-shadow:none!important}
+  .glass-app #suitePage .v3-table-hint {display:none!important}
+}

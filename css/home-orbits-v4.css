@@ -1,0 +1,94 @@
+/* Larger glass metrics occupy the middle of the existing overview slot.
+   They do not participate in the slot's height calculation or move later rows. */
+.glass-app.home-v2 #home .glass-orbit>small {display:none}
+.glass-app.home-v2 #home .glass-orbit {
+  background:radial-gradient(ellipse at 25% 12%,#ffffffd4 0%,#ffffff66 30%,transparent 66%),linear-gradient(145deg,#ffffff76,#e7edff2e 72%,#b6c8f018);
+  border:1px solid #fffffff0;
+  box-shadow:inset 1px 2px 3px #ffffffe6,inset -1px -2px 5px #9caed51c,0 12px 28px #5d6a8f0e;
+  backdrop-filter:blur(15px);-webkit-backdrop-filter:blur(15px);
+}
+.glass-app.home-v2 #home .glass-orbit::before {
+  content:'';position:absolute;inset:7px;border-radius:50%;pointer-events:none;
+  border-top:1px solid #ffffffb0;border-left:1px solid #ffffff56;
+  border-right:1px solid transparent;border-bottom:1px solid transparent;
+  transform:rotate(-14deg);opacity:.85;
+}
+.glass-app.home-v2 #home .glass-orbit-net {
+  z-index:2;border-color:#ffffffe8;
+  background:radial-gradient(ellipse at 28% 9%,#ffffffe0 0%,#ffffff65 22%,transparent 60%),linear-gradient(145deg,#b18bd269,#9354c44a 57%,#651a7c3b);
+  box-shadow:inset 1px 2px 3px #ffffffd9,inset -1px -2px 4px #7a4c9b1c,0 14px 32px #65277c14;
+  backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);
+}
+.glass-app.home-v2 #home .glass-orbit-net::before {border-top-color:#ffffffe3;border-left-color:#ffffff78}
+.glass-app.home-v2 #home .glass-orbit :is(span,strong) {position:relative;z-index:1}
+.glass-app.home-v2 #home .glass-orbit-net :is(span,strong) {color:#581b73}
+
+@media(min-width:1101px) {
+  .glass-app.home-v2 #home #glassOverview {
+    --orbit-v4-size:200px;--orbit-v4-overlap:42px;
+    overflow:visible;isolation:isolate;
+    background:radial-gradient(ellipse at 64% 42%,#b8b7ed36,transparent 56%),linear-gradient(130deg,#ffffffce,#eef1ff9c);
+  }
+  .glass-app.home-v2 #home .glass-overview-body {
+    display:grid;grid-template-columns:minmax(210px,.8fr) minmax(0,2fr) 100px;
+    position:relative;gap:16px;align-items:center;
+  }
+  .glass-app.home-v2 #home .glass-balance {position:relative;z-index:4;min-width:0;max-width:100%}
+  .glass-app.home-v2 #home .glass-orbits {
+    display:flex;align-items:center;justify-content:center;position:relative;
+    width:100%;height:0;min-height:0;min-width:0;overflow:visible;isolation:isolate;
+    flex:initial;order:0;pointer-events:none;
+  }
+  .glass-app.home-v2 #home .glass-orbit {
+    width:var(--orbit-v4-size);height:var(--orbit-v4-size);min-width:var(--orbit-v4-size);
+    flex:0 0 var(--orbit-v4-size);gap:9px;transform:translateY(-1px);
+  }
+  .glass-app.home-v2 #home .glass-orbit+.glass-orbit {margin-left:calc(-1 * var(--orbit-v4-overlap))}
+  .glass-app.home-v2 #home .glass-orbit:first-child {transform:translateY(5px)}
+  .glass-app.home-v2 #home .glass-orbit:last-child {transform:translateY(1px)}
+  .glass-app.home-v2 #home .glass-orbit-net {transform:translateY(-7px)}
+  .glass-app.home-v2 #home .glass-orbit span {font-size:12px;line-height:19px;letter-spacing:.15px}
+  .glass-app.home-v2 #home .glass-orbit strong {font-size:27px;line-height:33px;letter-spacing:-.8px;font-weight:650;white-space:nowrap}
+  .glass-app.home-v2 #home .glass-overview-actions {position:relative;z-index:4;min-width:100px;flex:none;align-self:center}
+  .glass-app.home-v2 #home .glass-overview-footer {
+    position:relative;z-index:4;
+    background:linear-gradient(180deg,#f4f5fd00,#f3f5fd65 32%,#f5f7fd9e);
+    border-radius:0 0 13px 13px;
+  }
+  .glass-app.home-v2 #home #glassOverview #stats {position:relative;z-index:1}
+}
+@media(min-width:1101px) and (min-height:1000px) {
+  .glass-app.home-v2 #home #glassOverview {--orbit-v4-size:218px;--orbit-v4-overlap:46px}
+  .glass-app.home-v2 #home .glass-orbit {gap:10px}
+  .glass-app.home-v2 #home .glass-orbit span {font-size:13px;line-height:20px}
+  .glass-app.home-v2 #home .glass-orbit strong {font-size:30px;line-height:36px}
+}
+@media(min-width:1101px) and (max-height:820px) {
+  .glass-app.home-v2 #home #glassOverview {--orbit-v4-size:180px;--orbit-v4-overlap:37px}
+  .glass-app.home-v2 #home .glass-overview-body {grid-template-columns:minmax(205px,.8fr) minmax(0,2fr) 90px;gap:12px}
+  .glass-app.home-v2 #home .glass-orbit {gap:7px}
+  .glass-app.home-v2 #home .glass-orbit span {font-size:11px;line-height:18px}
+  .glass-app.home-v2 #home .glass-orbit strong {font-size:24px;line-height:29px}
+  .glass-app.home-v2 #home .glass-overview-actions {min-width:90px}
+}
+@media(min-width:1101px) and (max-width:1230px) {
+  .glass-app.home-v2 #home #glassOverview {--orbit-v4-size:165px;--orbit-v4-overlap:44px}
+  .glass-app.home-v2 #home .glass-overview-body {grid-template-columns:minmax(190px,.8fr) minmax(0,2fr) 90px;gap:10px}
+  .glass-app.home-v2 #home .glass-orbit strong {font-size:22px;line-height:28px}
+}
+@media(max-width:1100px) and (min-width:601px) {
+  .glass-app.home-v2 #home .glass-orbits {width:100%;padding:8px 0 3px}
+  .glass-app.home-v2 #home .glass-orbit {width:160px;height:160px;min-width:160px;gap:8px}
+  .glass-app.home-v2 #home .glass-orbit+.glass-orbit {margin-left:-28px}
+  .glass-app.home-v2 #home .glass-orbit-net {transform:translateY(-6px)}
+  .glass-app.home-v2 #home .glass-orbit strong {font-size:25px;line-height:31px}
+}
+@media(max-width:600px) {
+  .glass-app.home-v2 #home .glass-orbits {width:100%;padding:5px 0 1px;overflow:visible;justify-content:center}
+  .glass-app.home-v2 #home .glass-orbit {width:clamp(96px,30vw,124px);height:clamp(96px,30vw,124px);min-width:clamp(96px,30vw,124px);flex:0 0 auto;gap:7px}
+  .glass-app.home-v2 #home .glass-orbit+.glass-orbit {margin-left:-20px}
+  .glass-app.home-v2 #home .glass-orbit-net {transform:translateY(-5px)}
+  .glass-app.home-v2 #home .glass-orbit span {font-size:10px;line-height:16px}
+  .glass-app.home-v2 #home .glass-orbit strong {font-size:18px;line-height:23px;letter-spacing:-.6px;white-space:nowrap}
+  .glass-app.home-v2 #home .glass-orbit::before {inset:5px}
+}

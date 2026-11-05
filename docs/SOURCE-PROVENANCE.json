@@ -1,0 +1,880 @@
+{
+  "description": "Independent release extracted from the existing Financial Aurora site; business data retained. Paths are relative, never local machine paths.",
+  "files": [
+    {
+      "source": "financial-aurora-preview/app.js",
+      "destination": "js/app.js",
+      "source_sha256": "b6aa8eccd8dfb464ab53e0d684634588239f22dddbba86d4125f837d53125325",
+      "destination_sha256": "b6aa8eccd8dfb464ab53e0d684634588239f22dddbba86d4125f837d53125325",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/bom-data.js",
+      "destination": "js/bom-data.js",
+      "source_sha256": "562b4d3f414ab77e80729df5410e83b64cd905bf9735b737f5a3baae308b8ddb",
+      "destination_sha256": "562b4d3f414ab77e80729df5410e83b64cd905bf9735b737f5a3baae308b8ddb",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/bom-extra.css",
+      "destination": "css/bom-extra.css",
+      "source_sha256": "862016876b641c524a3ba09e5fcdb9c264765971ce98619c844ab62a98960638",
+      "destination_sha256": "862016876b641c524a3ba09e5fcdb9c264765971ce98619c844ab62a98960638",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/bom-focus-v4.css",
+      "destination": "css/bom-focus-v4.css",
+      "source_sha256": "e62373d2220bc6cc594967c83125e3ce93802e18a7e5bf7f8da6241ad17f3a5b",
+      "destination_sha256": "e62373d2220bc6cc594967c83125e3ce93802e18a7e5bf7f8da6241ad17f3a5b",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/bom-reference.js",
+      "destination": "js/bom-reference.js",
+      "source_sha256": "55d031629582907536baa6b572c072312d2bb2e20b25372cd66b8cb5f0104749",
+      "destination_sha256": "55d031629582907536baa6b572c072312d2bb2e20b25372cd66b8cb5f0104749",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/bom-view.css",
+      "destination": "css/bom-view.css",
+      "source_sha256": "5f5fd043e06c773d9de182255114963c70bad47ec4adbcc690fe56c4084a40ce",
+      "destination_sha256": "5f5fd043e06c773d9de182255114963c70bad47ec4adbcc690fe56c4084a40ce",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/bom-view.js",
+      "destination": "js/bom-view.js",
+      "source_sha256": "5d2c07feb4683540610348e5e26254391048fc236a898c6936fdde13bf9e8a12",
+      "destination_sha256": "5d2c07feb4683540610348e5e26254391048fc236a898c6936fdde13bf9e8a12",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/bom-workspace.js",
+      "destination": "js/bom-workspace.js",
+      "source_sha256": "2fd6dd118956fac0777734ec65c58174fff24db1c089f3ae721150a89b1eebe6",
+      "destination_sha256": "2fd6dd118956fac0777734ec65c58174fff24db1c089f3ae721150a89b1eebe6",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/carousel.js",
+      "destination": "js/carousel.js",
+      "source_sha256": "d523b2ca844480c67c7c38310f982ee2271b295317d19d9a3a274611340fccf7",
+      "destination_sha256": "d523b2ca844480c67c7c38310f982ee2271b295317d19d9a3a274611340fccf7",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/content-clarity-v4.css",
+      "destination": "css/content-clarity-v4.css",
+      "source_sha256": "49acf7e543531139b7f8ee1b967f6234a24009263fb7f70661ac9563b7779984",
+      "destination_sha256": "49acf7e543531139b7f8ee1b967f6234a24009263fb7f70661ac9563b7779984",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/glass-layout.css",
+      "destination": "css/glass-layout.css",
+      "source_sha256": "725235dbbc28585ff730182cea34cae041f0b342547b0d76e679b4cad1745976",
+      "destination_sha256": "725235dbbc28585ff730182cea34cae041f0b342547b0d76e679b4cad1745976",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/glass-layout.js",
+      "destination": "js/glass-layout.js",
+      "source_sha256": "a197e886840c1c2ffeaa12fa6c173fa8b01e822faf5f6fb403cde12ca1885f55",
+      "destination_sha256": "a197e886840c1c2ffeaa12fa6c173fa8b01e822faf5f6fb403cde12ca1885f55",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/glass-theme.css",
+      "destination": "css/glass-theme.css",
+      "source_sha256": "1dd45eba3ae10df911f2347d3f358247643d4d5563f3265ba14591a39ff53454",
+      "destination_sha256": "1dd45eba3ae10df911f2347d3f358247643d4d5563f3265ba14591a39ff53454",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/home-orbits-v4.css",
+      "destination": "css/home-orbits-v4.css",
+      "source_sha256": "8675757c7338adff78e7f22762ce455e9b7288f8bffbf877925ba65456eca733",
+      "destination_sha256": "8675757c7338adff78e7f22762ce455e9b7288f8bffbf877925ba65456eca733",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/home-v2.css",
+      "destination": "css/home-v2.css",
+      "source_sha256": "0a33b78b3c9235bcb1d3fbf9d142974b163e5f2b69932323f256192dfdfb979c",
+      "destination_sha256": "0a33b78b3c9235bcb1d3fbf9d142974b163e5f2b69932323f256192dfdfb979c",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/motion-charts.css",
+      "destination": "css/motion-charts.css",
+      "source_sha256": "8d3636a39b475f512a14c65086603f0b58aaae223da46aaaf43956b42aaa5efd",
+      "destination_sha256": "8d3636a39b475f512a14c65086603f0b58aaae223da46aaaf43956b42aaa5efd",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/motion-charts.js",
+      "destination": "js/motion-charts.js",
+      "source_sha256": "641362b12ef7fda3817a43f430d4b92f4b47788013fb89e5316eb8e2608c2efb",
+      "destination_sha256": "641362b12ef7fda3817a43f430d4b92f4b47788013fb89e5316eb8e2608c2efb",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/statements.js",
+      "destination": "js/statements.js",
+      "source_sha256": "57fb64f9199fd29fb8198f39933d7f010ba293fd1f36c7ea6a60687cd47c4c41",
+      "destination_sha256": "57fb64f9199fd29fb8198f39933d7f010ba293fd1f36c7ea6a60687cd47c4c41",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/styles.css",
+      "destination": "css/styles.css",
+      "source_sha256": "cb82f91468b2c62f1c4c845906c7702090cce0fb2d84c558026ec075110a222c",
+      "destination_sha256": "cb82f91468b2c62f1c4c845906c7702090cce0fb2d84c558026ec075110a222c",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/suite-glass-v3.css",
+      "destination": "css/suite-glass-v3.css",
+      "source_sha256": "1867dddb60077fe6d485f99330b18f429839702b183f4c272f071dedda97043c",
+      "destination_sha256": "1867dddb60077fe6d485f99330b18f429839702b183f4c272f071dedda97043c",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/suite-glass-v3.js",
+      "destination": "js/suite-glass-v3.js",
+      "source_sha256": "0dca901dd5f8cc8adcb2d893effc07c36f10ca6f5706ad63bc9dbe0bb2cb6791",
+      "destination_sha256": "0dca901dd5f8cc8adcb2d893effc07c36f10ca6f5706ad63bc9dbe0bb2cb6791",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/suite.css",
+      "destination": "css/suite.css",
+      "source_sha256": "ee93a494f52e151d47a382a748b983d1fff73b64d27b0272a684d1b2ec98b88c",
+      "destination_sha256": "ee93a494f52e151d47a382a748b983d1fff73b64d27b0272a684d1b2ec98b88c",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/suite.js",
+      "destination": "js/suite.js",
+      "source_sha256": "f46cd950a784d3d6828ad37f39423f6055a2cf43779a687edeaa7bd7dff2b87f",
+      "destination_sha256": "a0b6d33c3e3e3350d2bf7cb66e93b97a0fc95a698e8a64a6db66737a76f76cd7",
+      "byte_preserved": false
+    },
+    {
+      "source": "financial-aurora-preview/trade-controller.js",
+      "destination": "js/trade-controller.js",
+      "source_sha256": "0840a2f35d51b168240df31582b84c8d3167a01ef459424e5c9eb78102a8ed5f",
+      "destination_sha256": "0840a2f35d51b168240df31582b84c8d3167a01ef459424e5c9eb78102a8ed5f",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/trade-engine.js",
+      "destination": "js/trade-engine.js",
+      "source_sha256": "81d3f3e6040b463dbdd2a7b3e491043dffd8cfde400254865591490233bc3fd4",
+      "destination_sha256": "81d3f3e6040b463dbdd2a7b3e491043dffd8cfde400254865591490233bc3fd4",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/trade-view.css",
+      "destination": "css/trade-view.css",
+      "source_sha256": "9d6048d48dfb28aa47ce07e7fe73f6201c8f385ae799618c6fe8ae0f7504f772",
+      "destination_sha256": "9d6048d48dfb28aa47ce07e7fe73f6201c8f385ae799618c6fe8ae0f7504f772",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/trade-view.js",
+      "destination": "js/trade-view.js",
+      "source_sha256": "c6fcabdd6cdea38eaff6827195dcd7ed116aa3072b555c8d6508f665dd45e3bc",
+      "destination_sha256": "c6fcabdd6cdea38eaff6827195dcd7ed116aa3072b555c8d6508f665dd45e3bc",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/vehicle-pixels.js",
+      "destination": "js/vehicle-pixels.js",
+      "source_sha256": "d5b86d1aa7bb3de1719ef3280fc9a8dc5a96704cc395d8ece1b6c11bebd82ea7",
+      "destination_sha256": "d5b86d1aa7bb3de1719ef3280fc9a8dc5a96704cc395d8ece1b6c11bebd82ea7",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/vehicle-showcase.css",
+      "destination": "css/vehicle-showcase.css",
+      "source_sha256": "1cd0587410d7858508e03a80636eb921d8ecb2dfcbda9fe3772a8a99398d004a",
+      "destination_sha256": "1cd0587410d7858508e03a80636eb921d8ecb2dfcbda9fe3772a8a99398d004a",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/vehicle-showcase.js",
+      "destination": "js/vehicle-showcase.js",
+      "source_sha256": "0eb105a39c0d7f1b28ca9190060021bc6e9919f3977a9cf5ce5d7d1f1253f7af",
+      "destination_sha256": "f8e4b60dcb8ca2762cea9792df0c93d785488665f72d6ef046bba5f23192ea54",
+      "byte_preserved": false
+    },
+    {
+      "source": "dist/catalog-core.js",
+      "destination": "js/catalog-core.js",
+      "source_sha256": "d39bbceb0e028bddbbf67c9d8b3c0953da6204b12ab62a31648080f82ac1c079",
+      "destination_sha256": "d39bbceb0e028bddbbf67c9d8b3c0953da6204b12ab62a31648080f82ac1c079",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/catalog-data.js",
+      "destination": "js/catalog-data.js",
+      "source_sha256": "4d5abf0e4820bdadd8a301f612a57d139df3b565a22675edb797ce14d225b94a",
+      "destination_sha256": "4d5abf0e4820bdadd8a301f612a57d139df3b565a22675edb797ce14d225b94a",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/catalog.js",
+      "destination": "js/catalog.js",
+      "source_sha256": "66de3db47a932efa72fa8c96aac611cf3a1dfe5ab311bffdc8adb023e8e9f42f",
+      "destination_sha256": "66de3db47a932efa72fa8c96aac611cf3a1dfe5ab311bffdc8adb023e8e9f42f",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/finance-link.js",
+      "destination": "js/finance-link.js",
+      "source_sha256": "1351723542f6f35a71cf18d61dacd0491a063cc05026eb21159f616be992bb81",
+      "destination_sha256": "70c1cf20c1bbb248a8d0b7b5d192b0890584614b6a749d3250b42fa1bb7faaa9",
+      "byte_preserved": false
+    },
+    {
+      "source": "dist/finance-bridge.html",
+      "destination": "js/finance-bridge.html",
+      "source_sha256": "aedd38c4e3804f0b5d06c303ed53c27100ba2a70c7331ec0755f8342b1c0b503",
+      "destination_sha256": "aedd38c4e3804f0b5d06c303ed53c27100ba2a70c7331ec0755f8342b1c0b503",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/finance-bridge.js",
+      "destination": "js/finance-bridge.js",
+      "source_sha256": "0e94dc6cec5a0e5d65320c97c0fccbe87eb412b82e06589a740b6462be8355b9",
+      "destination_sha256": "0e94dc6cec5a0e5d65320c97c0fccbe87eb412b82e06589a740b6462be8355b9",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/fonts/Inter-OFL.txt",
+      "destination": "fonts/Inter-OFL.txt",
+      "source_sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57",
+      "destination_sha256": "5b9321a4298cfeb6b34354164a1c3afc3db114569984c502b9b35d988fd58c57",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/fonts/Inter-Variable.ttf",
+      "destination": "fonts/Inter-Variable.ttf",
+      "source_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+      "destination_sha256": "29160a80ff49ddcab2c97711247e08b1fab27a484a329ce8b813d820dc559031",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/fonts/NotoSansSC-OFL.txt",
+      "destination": "fonts/NotoSansSC-OFL.txt",
+      "source_sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+      "destination_sha256": "1c05c68c34f9708415aada51f17e1b0092d2cea709bf4a94cd38114f9e73d7d9",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/fonts/NotoSansSC-Variable.ttf",
+      "destination": "fonts/NotoSansSC-Variable.ttf",
+      "source_sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+      "destination_sha256": "a3041811a78c361b1de50f953c805e0244951c21c5bd412f7232ef0d899af0da",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/fonts/fonts.css",
+      "destination": "css/fonts.css",
+      "source_sha256": "4243babf9f8372c7210c8d3de32f72bb6f5ed16fba3edc68e83c4af61d7f0dea",
+      "destination_sha256": "853fb0349e6a84b5cc51b5734e96c264188c9c4ad66a42099cc6b1afbf9a2aa7",
+      "byte_preserved": false
+    },
+    {
+      "source": "financial-aurora-preview/assets/ar26.webp",
+      "destination": "assets/ar26.webp",
+      "source_sha256": "15fb534b6c0df3e9e9cbdf9ca7f87c1c559577809b6ffc8030a48b9e0905fe07",
+      "destination_sha256": "15fb534b6c0df3e9e9cbdf9ca7f87c1c559577809b6ffc8030a48b9e0905fe07",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/aurora-logo.png",
+      "destination": "assets/aurora-logo.png",
+      "source_sha256": "5a090352b3b0e7553760be05a56534ed073cfb67516d6c49c509b51f8f28506c",
+      "destination_sha256": "5a090352b3b0e7553760be05a56534ed073cfb67516d6c49c509b51f8f28506c",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/cutout-1028.png",
+      "destination": "assets/vehicle/cutout-1028.png",
+      "source_sha256": "8ee7f756a0f75b5ad4c4d7af9117feb629be44cdcbcb9f456fd2353e71a92efb",
+      "destination_sha256": "8ee7f756a0f75b5ad4c4d7af9117feb629be44cdcbcb9f456fd2353e71a92efb",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/cutout-1029.png",
+      "destination": "assets/vehicle/cutout-1029.png",
+      "source_sha256": "d87d3795249db942104a907c0c6e0837f5bd0de6fc0ec21582c217b7c8b2d27a",
+      "destination_sha256": "d87d3795249db942104a907c0c6e0837f5bd0de6fc0ec21582c217b7c8b2d27a",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/cutout-1030.png",
+      "destination": "assets/vehicle/cutout-1030.png",
+      "source_sha256": "4925438047e40ae89dad7a3157627485a4e27b2ee1cad451ffe8131a1a244b02",
+      "destination_sha256": "4925438047e40ae89dad7a3157627485a4e27b2ee1cad451ffe8131a1a244b02",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/cutout-1031.png",
+      "destination": "assets/vehicle/cutout-1031.png",
+      "source_sha256": "f20ac0db90b6c16e0ab4d21cfa5b5374777b556c838f39b0933a1f31ada89ae7",
+      "destination_sha256": "f20ac0db90b6c16e0ab4d21cfa5b5374777b556c838f39b0933a1f31ada89ae7",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/cutout-1033.png",
+      "destination": "assets/vehicle/cutout-1033.png",
+      "source_sha256": "544d76fc113110fe5886023f3035a0b47ab4b1bbcde035420e16e61c9d77e082",
+      "destination_sha256": "544d76fc113110fe5886023f3035a0b47ab4b1bbcde035420e16e61c9d77e082",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/cutout-1034.png",
+      "destination": "assets/vehicle/cutout-1034.png",
+      "source_sha256": "6564ec56a6831669fea96d2015b9977e333fc227e299afaf455d948403f0ae7e",
+      "destination_sha256": "6564ec56a6831669fea96d2015b9977e333fc227e299afaf455d948403f0ae7e",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/cutout-1035.png",
+      "destination": "assets/vehicle/cutout-1035.png",
+      "source_sha256": "ac6763dfdd29f4d889076fdeaca6b29cf303fe0d07b086ba7db1bf998054f284",
+      "destination_sha256": "ac6763dfdd29f4d889076fdeaca6b29cf303fe0d07b086ba7db1bf998054f284",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/cutout-1036.png",
+      "destination": "assets/vehicle/cutout-1036.png",
+      "source_sha256": "2d5c127dfb4f03a004cee7f1cb8aaffb5a8d9b145b73371901a672dfb5e09ac2",
+      "destination_sha256": "2d5c127dfb4f03a004cee7f1cb8aaffb5a8d9b145b73371901a672dfb5e09ac2",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/cutout-1040.png",
+      "destination": "assets/vehicle/cutout-1040.png",
+      "source_sha256": "79e579ef8fc573a7967b437a62b9dea774145021e639b4263de0b45186f1b782",
+      "destination_sha256": "79e579ef8fc573a7967b437a62b9dea774145021e639b4263de0b45186f1b782",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/cutout-1041.png",
+      "destination": "assets/vehicle/cutout-1041.png",
+      "source_sha256": "74e9768ba8fc4398a8ba77447e6da621886df71adbec0050c9c3d5f99618e4a7",
+      "destination_sha256": "74e9768ba8fc4398a8ba77447e6da621886df71adbec0050c9c3d5f99618e4a7",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-01.png",
+      "destination": "assets/vehicle/view-01.png",
+      "source_sha256": "9bbd614edd81a77c4f04f8c7f6f4e5a72c0b30c337c9fc627031762bf1d4001a",
+      "destination_sha256": "9bbd614edd81a77c4f04f8c7f6f4e5a72c0b30c337c9fc627031762bf1d4001a",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-02.png",
+      "destination": "assets/vehicle/view-02.png",
+      "source_sha256": "ed0b7b0bd8fcd7e6d5603cc184c92f85fb339c1c2e7cb7264a7e0006cdcc70a0",
+      "destination_sha256": "ed0b7b0bd8fcd7e6d5603cc184c92f85fb339c1c2e7cb7264a7e0006cdcc70a0",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-05.png",
+      "destination": "assets/vehicle/view-05.png",
+      "source_sha256": "982a708da6cf889d1727b0c0cd1dad3936ffc925ae3e098e0510ebd6b6ba01f3",
+      "destination_sha256": "982a708da6cf889d1727b0c0cd1dad3936ffc925ae3e098e0510ebd6b6ba01f3",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-06.png",
+      "destination": "assets/vehicle/view-06.png",
+      "source_sha256": "cc17ae060459bc91d0dad805e3b032c0264b443ee1906279fd2520e7bab84d90",
+      "destination_sha256": "cc17ae060459bc91d0dad805e3b032c0264b443ee1906279fd2520e7bab84d90",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-07.png",
+      "destination": "assets/vehicle/view-07.png",
+      "source_sha256": "98cfb16b3822740e602839d32a90f9413e0d57c5639c4764fa794a91a5fe791b",
+      "destination_sha256": "98cfb16b3822740e602839d32a90f9413e0d57c5639c4764fa794a91a5fe791b",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-09.png",
+      "destination": "assets/vehicle/view-09.png",
+      "source_sha256": "fee566810f618217525c79a9f469db032b24111ca48679ee3d3cdb6446d8faee",
+      "destination_sha256": "fee566810f618217525c79a9f469db032b24111ca48679ee3d3cdb6446d8faee",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-10.png",
+      "destination": "assets/vehicle/view-10.png",
+      "source_sha256": "9dd54ce790031345366b344d04fb530252c7fc42ae4218b6e47e3d06c792c8f6",
+      "destination_sha256": "9dd54ce790031345366b344d04fb530252c7fc42ae4218b6e47e3d06c792c8f6",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-12.png",
+      "destination": "assets/vehicle/view-12.png",
+      "source_sha256": "492718d7c79fff1c6a8882d9e5972936c8eaf8fe7bbdad3869b8a78d3948c34c",
+      "destination_sha256": "492718d7c79fff1c6a8882d9e5972936c8eaf8fe7bbdad3869b8a78d3948c34c",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-17.png",
+      "destination": "assets/vehicle/view-17.png",
+      "source_sha256": "ccb743fe470c516512c1d0e90ac6390b1e3b315848cb576c2ce75a128a941a05",
+      "destination_sha256": "ccb743fe470c516512c1d0e90ac6390b1e3b315848cb576c2ce75a128a941a05",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-18.png",
+      "destination": "assets/vehicle/view-18.png",
+      "source_sha256": "0e1b27c53a1ff71c6afa35c93bee2f79ab217fdc9634f3dca5e37a749e3979a4",
+      "destination_sha256": "0e1b27c53a1ff71c6afa35c93bee2f79ab217fdc9634f3dca5e37a749e3979a4",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-20.png",
+      "destination": "assets/vehicle/view-20.png",
+      "source_sha256": "31a2eb88171616eb019f683429f08caff1afe132f413b7c3ef2a782135c58993",
+      "destination_sha256": "31a2eb88171616eb019f683429f08caff1afe132f413b7c3ef2a782135c58993",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-23.png",
+      "destination": "assets/vehicle/view-23.png",
+      "source_sha256": "e24727cb9a38f17546c7465ab83ca0247ceb3de4416c28f177aa9a363cd7be25",
+      "destination_sha256": "e24727cb9a38f17546c7465ab83ca0247ceb3de4416c28f177aa9a363cd7be25",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-24.png",
+      "destination": "assets/vehicle/view-24.png",
+      "source_sha256": "9f76fc3779ed109f8f97304739e2634b8972da49565795dc9c50af9470978170",
+      "destination_sha256": "9f76fc3779ed109f8f97304739e2634b8972da49565795dc9c50af9470978170",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-25.png",
+      "destination": "assets/vehicle/view-25.png",
+      "source_sha256": "930d8e1b0829d524c47c262fa1807b99f4e1771ada237b4d8743e818cbcc7de1",
+      "destination_sha256": "930d8e1b0829d524c47c262fa1807b99f4e1771ada237b4d8743e818cbcc7de1",
+      "byte_preserved": true
+    },
+    {
+      "source": "financial-aurora-preview/assets/vehicle/view-26.png",
+      "destination": "assets/vehicle/view-26.png",
+      "source_sha256": "792397bc915a67c96a28d1146a910d3f2992b134b902cb1eda2f61e2321f4702",
+      "destination_sha256": "792397bc915a67c96a28d1146a910d3f2992b134b902cb1eda2f61e2321f4702",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/aurora-products/formula-carbon.webp",
+      "destination": "assets/aurora-products/formula-carbon.webp",
+      "source_sha256": "7dcd0ee9fbc134f499af3d276d720610fac6f8af0cdd4272e78e468ff694fcdc",
+      "destination_sha256": "7dcd0ee9fbc134f499af3d276d720610fac6f8af0cdd4272e78e468ff694fcdc",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/aurora-products/gt-leather.webp",
+      "destination": "assets/aurora-products/gt-leather.webp",
+      "source_sha256": "edcfc73804e0e69b7a00830103e1545dc3281cb652f73ad1a31e69094be3736c",
+      "destination_sha256": "edcfc73804e0e69b7a00830103e1545dc3281cb652f73ad1a31e69094be3736c",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/aurora-products/rally-suede.webp",
+      "destination": "assets/aurora-products/rally-suede.webp",
+      "source_sha256": "66faeb9e755d5e5f36e41ee5d20afc66c7b8f385f49e5cf315811a96b78fc158",
+      "destination_sha256": "66faeb9e755d5e5f36e41ee5d20afc66c7b8f385f49e5cf315811a96b78fc158",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/aim-mxg-strada-light-7-tft-dash-display-with-race-icons.webp",
+      "destination": "assets/catalog/aim-mxg-strada-light-7-tft-dash-display-with-race-icons.webp",
+      "source_sha256": "f379cbf4201b98bb70557cac151b27f89388f47aa4746dc5cdb0b5558b691c4c",
+      "destination_sha256": "f379cbf4201b98bb70557cac151b27f89388f47aa4746dc5cdb0b5558b691c4c",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/aim-mxs-strada-light-5-tft-car-dash-display-with-race-icons.webp",
+      "destination": "assets/catalog/aim-mxs-strada-light-5-tft-car-dash-display-with-race-icons.webp",
+      "source_sha256": "6a1f77ea954394ec39a2d1db495ddfa7d47e1b42d5f8a5b9383316480b32c7e0",
+      "destination_sha256": "6a1f77ea954394ec39a2d1db495ddfa7d47e1b42d5f8a5b9383316480b32c7e0",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/aim-solo-2-gps-track-day-racing-lap-timer-and-data-logger.webp",
+      "destination": "assets/catalog/aim-solo-2-gps-track-day-racing-lap-timer-and-data-logger.webp",
+      "source_sha256": "9210a08a1a2dc2a65d39789b73b2b5b78c06ddc7bd43bf520e97681e7f7efb6a",
+      "destination_sha256": "9210a08a1a2dc2a65d39789b73b2b5b78c06ddc7bd43bf520e97681e7f7efb6a",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/ebc-bluestuff-ndx-super-street-trackday-brake-pads.webp",
+      "destination": "assets/catalog/ebc-bluestuff-ndx-super-street-trackday-brake-pads.webp",
+      "source_sha256": "914f1a7c73a6adcb46f27a4cf7bc5b48eeb0fd616d914fa43447821ce4d59280",
+      "destination_sha256": "914f1a7c73a6adcb46f27a4cf7bc5b48eeb0fd616d914fa43447821ce4d59280",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/ebc-gd-sport-rotors.webp",
+      "destination": "assets/catalog/ebc-gd-sport-rotors.webp",
+      "source_sha256": "d3ee8248629ec4301fdb50c570915287666ffd67cd0de5aefcb622c97adc09a6",
+      "destination_sha256": "d3ee8248629ec4301fdb50c570915287666ffd67cd0de5aefcb622c97adc09a6",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/ebc-greenstuff-brake-pads.webp",
+      "destination": "assets/catalog/ebc-greenstuff-brake-pads.webp",
+      "source_sha256": "79d120605d22c3901fe05cfbc6fd214176d960e9687ae54b5c0131dca0cfb781",
+      "destination_sha256": "79d120605d22c3901fe05cfbc6fd214176d960e9687ae54b5c0131dca0cfb781",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/ebc-redstuff-ceramic-brake-pads.webp",
+      "destination": "assets/catalog/ebc-redstuff-ceramic-brake-pads.webp",
+      "source_sha256": "5216002788f0052b20a74e749ef99b26cbc5894ac9e8f589c3597f14cf2e7c3a",
+      "destination_sha256": "5216002788f0052b20a74e749ef99b26cbc5894ac9e8f589c3597f14cf2e7c3a",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/ebc-usr-slotted-brake-rotors.webp",
+      "destination": "assets/catalog/ebc-usr-slotted-brake-rotors.webp",
+      "source_sha256": "fdb20e703cd74e4da225b83e7440c93dbf893008e9d56b7155308eb4baffa91f",
+      "destination_sha256": "fdb20e703cd74e4da225b83e7440c93dbf893008e9d56b7155308eb4baffa91f",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/ebc-yellowstuff-fast-street-pads.webp",
+      "destination": "assets/catalog/ebc-yellowstuff-fast-street-pads.webp",
+      "source_sha256": "b675091311100f131d5955956865cfd0962561493459fce4e0d67896450c7d3b",
+      "destination_sha256": "b675091311100f131d5955956865cfd0962561493459fce4e0d67896450c7d3b",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/enkei-nt03m.webp",
+      "destination": "assets/catalog/enkei-nt03m.webp",
+      "source_sha256": "8b22c2031dc8f69a0b21ddfcbd097e5bc3e68b95dbdd15269d42f839aa8c6da6",
+      "destination_sha256": "8b22c2031dc8f69a0b21ddfcbd097e5bc3e68b95dbdd15269d42f839aa8c6da6",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/enkei-pf01.webp",
+      "destination": "assets/catalog/enkei-pf01.webp",
+      "source_sha256": "df6525f04bb548dd53af8a27f52e4e0673941ed80c862ce969a2b1fe1df260a8",
+      "destination_sha256": "df6525f04bb548dd53af8a27f52e4e0673941ed80c862ce969a2b1fe1df260a8",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/enkei-raijin.webp",
+      "destination": "assets/catalog/enkei-raijin.webp",
+      "source_sha256": "d11a977e8b73d25ccc57d1099427951388685564d0e685d34d32359768a07907",
+      "destination_sha256": "d11a977e8b73d25ccc57d1099427951388685564d0e685d34d32359768a07907",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/enkei-rpf1.webp",
+      "destination": "assets/catalog/enkei-rpf1.webp",
+      "source_sha256": "fe9e9969eba0de9c336059907ddddb5afa1d802459232ebe2dd5931e774e352d",
+      "destination_sha256": "fe9e9969eba0de9c336059907ddddb5afa1d802459232ebe2dd5931e774e352d",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/enkei-rs05rr.webp",
+      "destination": "assets/catalog/enkei-rs05rr.webp",
+      "source_sha256": "6de86fb5fddd199ce138f2fe1de23cb9335e2e73ebf275e91d4295f1c9343d23",
+      "destination_sha256": "6de86fb5fddd199ce138f2fe1de23cb9335e2e73ebf275e91d4295f1c9343d23",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/enkei-t6r.webp",
+      "destination": "assets/catalog/enkei-t6r.webp",
+      "source_sha256": "cba80934f77311820d5830a16b6a8049f1aa7c53c24c52b2de611f5a35d1e1d1",
+      "destination_sha256": "cba80934f77311820d5830a16b6a8049f1aa7c53c24c52b2de611f5a35d1e1d1",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/enkei-tfr.webp",
+      "destination": "assets/catalog/enkei-tfr.webp",
+      "source_sha256": "6393d0e3a4b31bea5f822b11e32de7d0a9bfcfccc2f951b8a196c7fb118e3371",
+      "destination_sha256": "6393d0e3a4b31bea5f822b11e32de7d0a9bfcfccc2f951b8a196c7fb118e3371",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/enkei-ts-5.webp",
+      "destination": "assets/catalog/enkei-ts-5.webp",
+      "source_sha256": "35dcc580aa54b63f538822bbeae8c695c99d3255335c5c0871ef2f7c57f79394",
+      "destination_sha256": "35dcc580aa54b63f538822bbeae8c695c99d3255335c5c0871ef2f7c57f79394",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/hr-race-springs.webp",
+      "destination": "assets/catalog/hr-race-springs.webp",
+      "source_sha256": "ae6aad1bdb219ef78904c7e031202179645c81e2938c6b746e68804d4152aa1a",
+      "destination_sha256": "ae6aad1bdb219ef78904c7e031202179645c81e2938c6b746e68804d4152aa1a",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/hr-sport-cup-kit.webp",
+      "destination": "assets/catalog/hr-sport-cup-kit.webp",
+      "source_sha256": "2000a5f322aa11bf27bac1d43f4190b4418671a2a4fdda7a0e2b8944bf8d24dc",
+      "destination_sha256": "2000a5f322aa11bf27bac1d43f4190b4418671a2a4fdda7a0e2b8944bf8d24dc",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/hr-sport-springs.webp",
+      "destination": "assets/catalog/hr-sport-springs.webp",
+      "source_sha256": "cab0aac268db064eca8f9109b1d9994d5ea9af9f5fda0094d5c6a40cdc5c3edc",
+      "destination_sha256": "cab0aac268db064eca8f9109b1d9994d5ea9af9f5fda0094d5c6a40cdc5c3edc",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/hr-street-performance-coil-over.webp",
+      "destination": "assets/catalog/hr-street-performance-coil-over.webp",
+      "source_sha256": "9c9de67b4c3df5d986844bd2c4426cca6a897888f809c0b39d9fa4aabc4849b8",
+      "destination_sha256": "9c9de67b4c3df5d986844bd2c4426cca6a897888f809c0b39d9fa4aabc4849b8",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/hr-super-sport-springs.webp",
+      "destination": "assets/catalog/hr-super-sport-springs.webp",
+      "source_sha256": "283dd7d287d88cfaace1b65f561cc1dc1dc9d159060bcc4d68fffb7e3a8a8193",
+      "destination_sha256": "283dd7d287d88cfaace1b65f561cc1dc1dc9d159060bcc4d68fffb7e3a8a8193",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/hr-touring-cup-kit.webp",
+      "destination": "assets/catalog/hr-touring-cup-kit.webp",
+      "source_sha256": "1ce0e85481ac80ccedc2320df193076f3e05e21d255a18772c39dfc01fd6c38d",
+      "destination_sha256": "1ce0e85481ac80ccedc2320df193076f3e05e21d255a18772c39dfc01fd6c38d",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/nitto-555g2.webp",
+      "destination": "assets/catalog/nitto-555g2.webp",
+      "source_sha256": "82ba0d749d42e6963ba97d204187cff3033d0424c7ff8a52f0d957269b6dd9f7",
+      "destination_sha256": "82ba0d749d42e6963ba97d204187cff3033d0424c7ff8a52f0d957269b6dd9f7",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/nitto-nt01.webp",
+      "destination": "assets/catalog/nitto-nt01.webp",
+      "source_sha256": "f8335c019b2c677f8b220ac68f4633e5bf6ce59e1458d79de1be99ff45763fd9",
+      "destination_sha256": "f8335c019b2c677f8b220ac68f4633e5bf6ce59e1458d79de1be99ff45763fd9",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/rp-1-racing-brake-pads.webp",
+      "destination": "assets/catalog/rp-1-racing-brake-pads.webp",
+      "source_sha256": "5cef85fb8a59952f2589587adfc623fae4f1dc6deb0f15775c8878f77dbfa548",
+      "destination_sha256": "5cef85fb8a59952f2589587adfc623fae4f1dc6deb0f15775c8878f77dbfa548",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/rp-x-racing-brake-pads.webp",
+      "destination": "assets/catalog/rp-x-racing-brake-pads.webp",
+      "source_sha256": "575b009b3621aad775ff94d36bfa99713535a5894656ff7dc2c4489e0d9b110a",
+      "destination_sha256": "575b009b3621aad775ff94d36bfa99713535a5894656ff7dc2c4489e0d9b110a",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/smartycam-4-corsa.webp",
+      "destination": "assets/catalog/smartycam-4-corsa.webp",
+      "source_sha256": "b2e11091f65ad849b5e050a1c0faffed6789efae7eacfa9de1d8e4a338168da5",
+      "destination_sha256": "b2e11091f65ad849b5e050a1c0faffed6789efae7eacfa9de1d8e4a338168da5",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-4-pt-3.webp",
+      "destination": "assets/catalog/sparco-4-pt-3.webp",
+      "source_sha256": "d4672fb8d1db26ebe91e287389760b746dc04dd0369003d735150009ef1d30f9",
+      "destination_sha256": "d4672fb8d1db26ebe91e287389760b746dc04dd0369003d735150009ef1d30f9",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-6-pt-2-aluminum-pd.webp",
+      "destination": "assets/catalog/sparco-6-pt-2-aluminum-pd.webp",
+      "source_sha256": "d14bc5d6f5176ac144ce670a3e398ae6a5ec75a70ec6e8066f0af10fb1a150d4",
+      "destination_sha256": "d14bc5d6f5176ac144ce670a3e398ae6a5ec75a70ec6e8066f0af10fb1a150d4",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-6-pt-2-formula.webp",
+      "destination": "assets/catalog/sparco-6-pt-2-formula.webp",
+      "source_sha256": "e55c45da2ff8dce3da4dc1e306c900a0b59b69722b1dedae8205e9898fa3beaa",
+      "destination_sha256": "e55c45da2ff8dce3da4dc1e306c900a0b59b69722b1dedae8205e9898fa3beaa",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-6-pt-3-steel-pd-2.webp",
+      "destination": "assets/catalog/sparco-6-pt-3-steel-pd-2.webp",
+      "source_sha256": "c108b819ebcfd33cf9d0d27cb1c041ecd1b63dfd5697182edf6a6c0297d1133d",
+      "destination_sha256": "c108b819ebcfd33cf9d0d27cb1c041ecd1b63dfd5697182edf6a6c0297d1133d",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-circuit-qrt.webp",
+      "destination": "assets/catalog/sparco-circuit-qrt.webp",
+      "source_sha256": "2152c959322f8efddce8a2939c45872208fdd5744eb4928bf633fa779f428116",
+      "destination_sha256": "2152c959322f8efddce8a2939c45872208fdd5744eb4928bf633fa779f428116",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-club-h-4r-2-sfi.webp",
+      "destination": "assets/catalog/sparco-club-h-4r-2-sfi.webp",
+      "source_sha256": "83015124267819fa413d7ec730a4b0b831d3b88cc4718df19c5358255a0f3353",
+      "destination_sha256": "83015124267819fa413d7ec730a4b0b831d3b88cc4718df19c5358255a0f3353",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-evo-qrt.webp",
+      "destination": "assets/catalog/sparco-evo-qrt.webp",
+      "source_sha256": "113250c60b75785271bf261dce3fa6fcaecfa48ae87b3ab330608fb6ab915175",
+      "destination_sha256": "113250c60b75785271bf261dce3fa6fcaecfa48ae87b3ab330608fb6ab915175",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-f10c-carbon.webp",
+      "destination": "assets/catalog/sparco-f10c-carbon.webp",
+      "source_sha256": "0c02007534d70f5ba40befd27c291cd9b1e283033aeb015b2b660e5ccc1ec96c",
+      "destination_sha256": "0c02007534d70f5ba40befd27c291cd9b1e283033aeb015b2b660e5ccc1ec96c",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-p-300.webp",
+      "destination": "assets/catalog/sparco-p-300.webp",
+      "source_sha256": "6e96b69a48357fca98ced69587e7582c926054baf39c2f518286480c02447573",
+      "destination_sha256": "6e96b69a48357fca98ced69587e7582c926054baf39c2f518286480c02447573",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-p-310.webp",
+      "destination": "assets/catalog/sparco-p-310.webp",
+      "source_sha256": "66a211bb25accbc6272e3b82a15a072eb1d8c4d8d1d7081b594db7c4904ec40a",
+      "destination_sha256": "66a211bb25accbc6272e3b82a15a072eb1d8c4d8d1d7081b594db7c4904ec40a",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-pro-2000-qrt-2020.webp",
+      "destination": "assets/catalog/sparco-pro-2000-qrt-2020.webp",
+      "source_sha256": "7c4c82da1d3db83106c9c15fb62227c75bb0e7841a03f04aadfacb4776057fe7",
+      "destination_sha256": "7c4c82da1d3db83106c9c15fb62227c75bb0e7841a03f04aadfacb4776057fe7",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-qrt-r.webp",
+      "destination": "assets/catalog/sparco-qrt-r.webp",
+      "source_sha256": "301f5063cd204ee8f03fbb41e875907a552ff9652e8f180dff74a5ef7095c242",
+      "destination_sha256": "301f5063cd204ee8f03fbb41e875907a552ff9652e8f180dff74a5ef7095c242",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-r-323.webp",
+      "destination": "assets/catalog/sparco-r-323.webp",
+      "source_sha256": "282739e8263d06df380da01d525c32c78980cf29c03b3a4154dc3443aba6c741",
+      "destination_sha256": "282739e8263d06df380da01d525c32c78980cf29c03b3a4154dc3443aba6c741",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-r-383.webp",
+      "destination": "assets/catalog/sparco-r-383.webp",
+      "source_sha256": "66f53c531e9925f5ef0a7720116af7d65fa6ddde07179d22837e909f4ffc2081",
+      "destination_sha256": "66f53c531e9925f5ef0a7720116af7d65fa6ddde07179d22837e909f4ffc2081",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-r330.webp",
+      "destination": "assets/catalog/sparco-r330.webp",
+      "source_sha256": "936ac5ea7882d52f9bc27154b500a0c2b3b60edd72b423798043a0ddb134742f",
+      "destination_sha256": "936ac5ea7882d52f9bc27154b500a0c2b3b60edd72b423798043a0ddb134742f",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-sprint.webp",
+      "destination": "assets/catalog/sparco-sprint.webp",
+      "source_sha256": "f7d305edc14aa7406b314f3ca926885e304375df7a4d10ce3760bd02da3e2786",
+      "destination_sha256": "f7d305edc14aa7406b314f3ca926885e304375df7a4d10ce3760bd02da3e2786",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/sparco-ultra-qrt.webp",
+      "destination": "assets/catalog/sparco-ultra-qrt.webp",
+      "source_sha256": "0e59f1abec3cd8e20b5de05e36bbec9908d0ad10aae1ab663ac6137da92b3f1b",
+      "destination_sha256": "0e59f1abec3cd8e20b5de05e36bbec9908d0ad10aae1ab663ac6137da92b3f1b",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/toyo-r1r.webp",
+      "destination": "assets/catalog/toyo-r1r.webp",
+      "source_sha256": "7b1017070f5f2d3ae02b22eeb1b534085a61196ca7918c8eae8371c789be31e2",
+      "destination_sha256": "7b1017070f5f2d3ae02b22eeb1b534085a61196ca7918c8eae8371c789be31e2",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/toyo-r888r.webp",
+      "destination": "assets/catalog/toyo-r888r.webp",
+      "source_sha256": "15cbfaee0dd5f76dace3bb5689d292d18b6ec63d1247986953b5bcc3606a9eaf",
+      "destination_sha256": "15cbfaee0dd5f76dace3bb5689d292d18b6ec63d1247986953b5bcc3606a9eaf",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/toyo-ra1.webp",
+      "destination": "assets/catalog/toyo-ra1.webp",
+      "source_sha256": "f8c72cbd7635581308037feb7038d0362172b33e8caf529c5513614c9ea96046",
+      "destination_sha256": "f8c72cbd7635581308037feb7038d0362172b33e8caf529c5513614c9ea96046",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/toyo-rr.webp",
+      "destination": "assets/catalog/toyo-rr.webp",
+      "source_sha256": "7c1ed4a01c18f68b0dbae22c358eda1ef27ee540c21e67f392f1d6caae0b5f2f",
+      "destination_sha256": "7c1ed4a01c18f68b0dbae22c358eda1ef27ee540c21e67f392f1d6caae0b5f2f",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/toyo-sport-2.webp",
+      "destination": "assets/catalog/toyo-sport-2.webp",
+      "source_sha256": "dd6616970e601882b996b76563e211940b1abc0fe8b3dfd29c17ef50814d095d",
+      "destination_sha256": "dd6616970e601882b996b76563e211940b1abc0fe8b3dfd29c17ef50814d095d",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/catalog/toyo-sport-r.webp",
+      "destination": "assets/catalog/toyo-sport-r.webp",
+      "source_sha256": "3b5cdfa3139ff67e6d1e7eba2a90d359e2eeed12a3ec67f5e9e33b9eb0be649c",
+      "destination_sha256": "3b5cdfa3139ff67e6d1e7eba2a90d359e2eeed12a3ec67f5e9e33b9eb0be649c",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/dssv.png",
+      "destination": "assets/dssv.png",
+      "source_sha256": "d51b25dbb6178de78401a9953b8c0f32f5400f27fdc678a8366c1fedaf9de6cd",
+      "destination_sha256": "d51b25dbb6178de78401a9953b8c0f32f5400f27fdc678a8366c1fedaf9de6cd",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/kw.jpg",
+      "destination": "assets/kw.jpg",
+      "source_sha256": "c91d17bbe6f53d747a3376fab7754bf3f9fcb1aca390e1b1bbbb178158adf59d",
+      "destination_sha256": "c91d17bbe6f53d747a3376fab7754bf3f9fcb1aca390e1b1bbbb178158adf59d",
+      "byte_preserved": true
+    },
+    {
+      "source": "dist/assets/ohlins.jpg",
+      "destination": "assets/ohlins.jpg",
+      "source_sha256": "f795589db3e2fa5638f5632993349a08da93e85a01285440f5368fd964eece54",
+      "destination_sha256": "f795589db3e2fa5638f5632993349a08da93e85a01285440f5368fd964eece54",
+      "byte_preserved": true
+    }
+  ]
+}
