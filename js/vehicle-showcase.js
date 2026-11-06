@@ -27,6 +27,65 @@ function frame(n){
  const f={pos,color,count:raw.count,width:raw.width,height:raw.height};decoded.set(n,f);return f;
 }
 const ease=t=>{t=Math.max(0,Math.min(1,t));return t*t*(3-2*t)};
+// Contact points calibrated against the 1920 x 1080 transparent renders.
+// Physical tyre order stays FL, FR, RR, RL, so adjacent views share a footprint.
+// The lighter points are occluded tyres; this is an inferred studio floor,
+// not a claimed ray-traced shadow from unavailable 3D geometry.
+const groundViews={
+ 1033:{p:[[1055,867],[660,755],[1201,692],[1596,804]],v:[1,.38,.38,1],r:63},
+ 1030:{p:[[690,852],[690,780],[1535,780],[1535,854]],v:[1,.28,.28,1],r:47},
+ 1040:{p:[[475,833],[1120,757],[1647,877],[1002,953]],v:[1,.35,1,1],r:64},
+ 1035:{p:[[461,837],[1159,787],[1587,886],[889,936]],v:[1,.35,1,1],r:65},
+ 1029:{p:[[580,815],[1340,815],[1434,950],[486,950]],v:[.25,.25,1,1],r:72},
+ 1036:{p:[[729,782],[1425,829],[995,923],[299,876]],v:[.35,1,1,1],r:65},
+ 1031:{p:[[1230,780],[1230,846],[384,846],[384,780]],v:[.28,1,1,.28],r:47},
+ 1034:{p:[[1325,760],[841,874],[295,811],[779,697]],v:[.35,1,1,.35],r:63},
+ 1041:{p:[[1378,795],[644,908],[265,802],[999,689]],v:[1,1,1,.35],r:65},
+ 1028:{p:[[1398,915],[521,915],[600,800],[1320,800]],v:[1,1,.25,.25],r:72}
+};
+function makeGroundShadow(canvas){
+ const ctx=canvas.getContext('2d',{alpha:true});
+ let W=1,H=1,dpr=1,snapshot={enabled:!!ctx,from:turns[0],to:turns[0],progress:0,draws:0,contacts:[],softness:1,opacity:1,bounds:{x:0,y:0,width:1,height:1}};
+ const mix=(a,b,t)=>a+(b-a)*t;
+ function ellipse(x,y,rx,ry,opacity){
+  if(rx<=0||ry<=0)return;ctx.save();ctx.translate(x,y);ctx.scale(rx,ry);
+  const g=ctx.createRadialGradient(0,0,0,0,0,1);g.addColorStop(0,`rgba(25,28,36,${opacity})`);g.addColorStop(.35,`rgba(25,28,36,${opacity*.66})`);g.addColorStop(1,'rgba(25,28,36,0)');ctx.fillStyle=g;ctx.beginPath();ctx.arc(0,0,1,0,Math.PI*2);ctx.fill();ctx.restore();
+ }
+ function polygon(points,blur,opacity,dx=0,dy=0){
+  ctx.save();ctx.filter=`blur(${blur}px)`;ctx.fillStyle=`rgba(29,31,39,${opacity})`;ctx.beginPath();points.forEach((p,i)=>i?ctx.lineTo(p[0]+dx,p[1]+dy):ctx.moveTo(p[0]+dx,p[1]+dy));ctx.closePath();ctx.fill();ctx.restore();
+ }
+ return {
+  resize(w,h,r){W=w;H=h;dpr=Math.min(r,2);canvas.width=Math.ceil(w*dpr);canvas.height=Math.ceil(h*dpr);if(ctx)ctx.setTransform(dpr,0,0,dpr,0,0)},
+  draw(from,to,progress){
+   if(!ctx)return;const a=groundViews[from],b=groundViews[to];if(!a||!b)return;
+   const t=ease(progress),spread=from===to?0:Math.sin(Math.PI*progress),strength=1-.28*spread,softness=1+.05*spread;
+   const w=Math.min(W,H*16/9),h=w*9/16,ox=(W-w)/2,oy=(H-h)/2,scale=w/1920;
+   const points=a.p.map((p,i)=>[mix(p[0],b.p[i][0],t),mix(p[1],b.p[i][1],t)]);
+   const p=points.map(q=>[ox+q[0]*scale,oy+q[1]*scale]);
+   const front=[(p[0][0]+p[1][0])/2,(p[0][1]+p[1][1])/2],rear=[(p[3][0]+p[2][0])/2,(p[3][1]+p[2][1])/2];
+   const frontAcross=[(p[0][0]-p[1][0])/2,(p[0][1]-p[1][1])/2],rearAcross=[(p[3][0]-p[2][0])/2,(p[3][1]-p[2][1])/2];
+   // Perspective ground plane, narrower than the tyre track. Fixed screen-space
+   // light offsets remain consistent while the car footprint changes heading.
+   const plane=(along,across)=>[mix(rear[0],front[0],along)+mix(rearAcross[0],frontAcross[0],along)*across,mix(rear[1],front[1],along)+mix(rearAcross[1],frontAcross[1],along)*across];
+   const body=[plane(-.10,-.55),plane(.80,-.61),plane(1.42,-.17),plane(1.42,.17),plane(.80,.61),plane(-.10,.55)];
+   const frontWing=[plane(1.36,-1.08),plane(1.58,-1.08),plane(1.58,1.08),plane(1.36,1.08)];
+   const rearWing=[plane(-.24,-.90),plane(-.08,-.90),plane(-.08,.90),plane(-.24,.90)];
+   ctx.clearRect(0,0,W,H);
+   polygon(body,Math.max(1.3,23*scale)*softness,.14*strength,20*scale,13*scale);
+   polygon(frontWing,Math.max(1,14*scale)*softness,.10*strength,9*scale,6*scale);
+   polygon(rearWing,Math.max(1.4,29*scale)*softness,.085*strength,30*scale,17*scale);
+   polygon(body,Math.max(.7,9*scale)*softness,.13*strength,0,3*scale);
+   for(let i=0;i<4;i++){
+    const visibility=mix(a.v[i],b.v[i],t),radius=mix(a.r,b.r,t)*scale;
+    ellipse(p[i][0]+4*scale,p[i][1]+3*scale,radius*1.45*softness,25*scale*softness,.21*strength*visibility);
+    ellipse(p[i][0],p[i][1]+1.5*scale,radius*.79,8.5*scale,.48*strength*visibility);
+   }
+   snapshot={enabled:true,from,to,progress,draws:snapshot.draws+1,contacts:points.map(p=>[p[0]/1920,p[1]/1080]),softness,opacity:strength,bounds:{x:ox,y:oy,width:w,height:h}};
+  },
+  state:()=>({...snapshot,contacts:snapshot.contacts.map(p=>p.slice()),bounds:{...snapshot.bounds}}),
+  destroy(){if(ctx)ctx.clearRect(0,0,W,H);canvas.width=canvas.height=1}
+ };
+}
 const random=i=>{const x=Math.sin(i*127.1+311.7)*43758.5453123;return x-Math.floor(x)};
 function element(input){return typeof input==='string'?document.querySelector(input):input}
 function hidden(root){return document.hidden||!root.isConnected||!!root.closest('[hidden],[inert]')||!!document.querySelector('dialog[open]')||(root.closest('.dashboard-slide')&&!root.closest('.dashboard-slide').classList.contains('is-active'))}
@@ -69,19 +128,19 @@ function makeRenderer(canvas,forceCanvas=false){
 }
 function mount(container){
  const root=element(container);if(!root)return null;if(carInstance?.root===root&&root.querySelector('.vehicle-showcase'))return carInstance;carInstance?.destroy();
- root.innerHTML=`<section class="vehicle-showcase" aria-label="赛车多视角环绕展示"><header class="vehicle-heading"><div><span class="vehicle-kicker">AURORA ENGINEERING</span><h3>整车环绕展示</h3></div><span class="vehicle-orbit-badge">AR-26</span></header><div class="vehicle-stage" role="img" aria-label="赛车多视角环绕动画"><span class="vehicle-aura"></span><span class="vehicle-turntable"></span><img class="vehicle-render is-front" src="${carAsset(turns[0])}" alt="Aurora 赛车左前视角" decoding="async"><canvas class="vehicle-pixels" aria-hidden="true"></canvas></div><div class="vehicle-caption"><div><span class="vehicle-cost-label">整车源表已计价合计</span><strong class="vehicle-cost">${money(total())}</strong></div><span class="vehicle-image-label">多视角环绕</span></div><footer class="vehicle-controls"><span class="vehicle-basis">每一份投入，都驶向赛场。</span><div><button type="button" data-vehicle="previous" aria-label="上一个视角" title="上一个视角">‹</button><button type="button" data-vehicle="pause" aria-label="暂停环绕" title="暂停环绕">Ⅱ</button><button type="button" data-vehicle="next" aria-label="下一个视角" title="下一个视角">›</button></div></footer></section>`;
- const stage=root.querySelector('.vehicle-stage'),panel=root.querySelector('.vehicle-showcase'),image=stage.querySelector('img');let renderer=makeRenderer(stage.querySelector('canvas'));
+ root.innerHTML=`<section class="vehicle-showcase" aria-label="赛车多视角环绕展示"><header class="vehicle-heading"><div><span class="vehicle-kicker">AURORA ENGINEERING</span><h3>整车环绕展示</h3></div><span class="vehicle-orbit-badge">AR-26</span></header><div class="vehicle-stage" role="img" aria-label="赛车多视角环绕动画"><span class="vehicle-aura"></span><canvas class="vehicle-ground-shadow" aria-hidden="true"></canvas><img class="vehicle-render is-front" src="${carAsset(turns[0])}" alt="Aurora 赛车左前视角" decoding="async"><canvas class="vehicle-pixels" aria-hidden="true"></canvas></div><div class="vehicle-caption"><div><span class="vehicle-cost-label">整车源表已计价合计</span><strong class="vehicle-cost">${money(total())}</strong></div><span class="vehicle-image-label">多视角环绕</span></div><footer class="vehicle-controls"><span class="vehicle-basis">每一份投入，都驶向赛场。</span><div><button type="button" data-vehicle="previous" aria-label="上一个视角" title="上一个视角">‹</button><button type="button" data-vehicle="pause" aria-label="暂停环绕" title="暂停环绕">Ⅱ</button><button type="button" data-vehicle="next" aria-label="下一个视角" title="下一个视角">›</button></div></footer></section>`;
+ const stage=root.querySelector('.vehicle-stage'),panel=root.querySelector('.vehicle-showcase'),image=stage.querySelector('img');let renderer=makeRenderer(stage.querySelector('.vehicle-pixels'));const groundShadow=makeGroundShadow(stage.querySelector('.vehicle-ground-shadow'));
  let index=0,nextIndex=1,direction=1,playing=!reduced.matches,visible=true,destroyed=false,raf=0,lastNow=0,hold=0,progress=0,transition=false,manualTransition=false,ready=false,preparing=false,W=1,H=1,dpr=1,job=0;
- const duration=1750,rest=650,loaded=new Map(),pending=new Map(),measurements={draws:[],intervals:[],prepare:[],renderedFrames:0};
+ const duration=1750,rest=650,loaded=new Map(),pending=new Map(),measurements={draws:[],shadowDraws:[],intervals:[],prepare:[],renderedFrames:0};
  function record(list,value){list.push(value);if(list.length>600)list.shift()}
  function load(n){if(pending.has(n))return pending.get(n);const im=new Image();im.decoding='async';im.src=carAsset(n);loaded.set(n,im);const promise=im.decode().catch(()=>new Promise((resolve,reject)=>{if(im.complete)return im.naturalWidth?resolve():reject(Error('车辆素材不可用'));im.onload=resolve;im.onerror=reject}));pending.set(n,promise);return promise}
  function controls(){const b=root.querySelector('[data-vehicle="pause"]');b.textContent=playing?'Ⅱ':'▶';b.title=playing?'暂停环绕':'播放环绕';b.setAttribute('aria-label',b.title);panel.classList.toggle('is-paused',!playing||hidden(root));stage.dataset.view=String(turns[index]);stage.dataset.phase=transition?(progress<.5?'disperse':'assemble'):'hold';stage.dataset.renderer=renderer.kind}
  function metadata(){root.querySelector('.vehicle-cost').textContent=money(total());root.querySelector('.vehicle-cost-label').textContent=window.AuroraBOM?.exportState().planActive?'整车方案测算合计':'整车源表已计价合计';controls()}
- function paint(){const start=performance.now();renderer.draw(progress,direction);record(measurements.draws,performance.now()-start);measurements.renderedFrames++}
- function resize(){const b=stage.getBoundingClientRect();W=Math.max(1,b.width);H=Math.max(1,b.height);dpr=Math.min(devicePixelRatio||1,2);renderer.resize(W,H,dpr);if(transition)paint()}
+ function paint(){const start=performance.now();renderer.draw(progress,direction);const shadowStart=performance.now();groundShadow.draw(turns[index],turns[nextIndex],progress);record(measurements.shadowDraws,performance.now()-shadowStart);record(measurements.draws,performance.now()-start);measurements.renderedFrames++}
+ function resize(){const b=stage.getBoundingClientRect();W=Math.max(1,b.width);H=Math.max(1,b.height);dpr=Math.min(devicePixelRatio||1,2);renderer.resize(W,H,dpr);groundShadow.resize(W,H,dpr);if(transition)paint();else groundShadow.draw(turns[index],turns[index],0)}
  function runnable(){return !destroyed&&ready&&visible&&!hidden(root)&&!reduced.matches&&(playing||manualTransition)}
  function wake(){if(raf||!runnable())return;lastNow=0;raf=requestAnimationFrame(tick)}
- function settle(){index=nextIndex;transition=false;manualTransition=false;progress=0;hold=0;image.src=carAsset(turns[index]);image.alt=`Aurora 赛车环绕视角 ${index+1}`;stage.classList.remove('is-pixel-transition');renderer.clear();controls()}
+ function settle(){index=nextIndex;transition=false;manualTransition=false;progress=0;hold=0;image.src=carAsset(turns[index]);image.alt=`Aurora 赛车环绕视角 ${index+1}`;stage.classList.remove('is-pixel-transition');renderer.clear();groundShadow.draw(turns[index],turns[index],0);controls()}
  async function start(delta=1,manual=false){
   if(transition||preparing)return;nextIndex=(index+delta+turns.length)%turns.length;direction=delta;const token=++job;preparing=true;
   try{await load(turns[nextIndex]);if(destroyed||token!==job)return;
@@ -109,7 +168,7 @@ function mount(container){
  renderer.canvas.addEventListener('webglcontextlost',lost);
  const data=()=>setTimeout(()=>!destroyed&&metadata(),0);document.addEventListener('aurora:bom-change',data);
  Promise.all([pixelsReady(),load(turns[0]),load(turns[1])]).then(()=>{if(destroyed)return;frame(turns[0]);frame(turns[1]);ready=true;wake();(async()=>{for(const n of turns.slice(2)){if(destroyed)return;await load(n).catch(()=>{});frame(n);await new Promise(resolve=>setTimeout(resolve,25))}})()}).catch(()=>{ready=true;root.querySelector('.vehicle-image-label').textContent='多视角展示';wake()});resize();metadata();
- carInstance={root,refresh:metadata,reset(){job++;preparing=false;index=0;nextIndex=0;settle();wake()},state:()=>({mode:'car',systemId:null,index,playing,image:String(turns[index]),total:total(),phase:transition?(progress<.5?'disperse':'assemble'):'hold',progress,particleCount:renderer.count,ready,renderer:renderer.kind,decodedViews:[...loaded.values()].filter(im=>im.complete&&im.naturalWidth>0).length,renderedFrames:measurements.renderedFrames}),performance:()=>({...measurements,renderer:renderer.kind,device:renderer.info()}),destroy(){destroyed=true;job++;cancelAnimationFrame(raf);observer.disconnect();sizeObserver.disconnect();mutation.disconnect();renderer.destroy();renderer.canvas.removeEventListener('webglcontextlost',lost);root.removeEventListener('click',click);stage.removeEventListener('keydown',key);reduced.removeEventListener('change',motion);document.removeEventListener('visibilitychange',visibility);document.removeEventListener('aurora:bom-change',data)}};return carInstance;
+ carInstance={root,refresh:metadata,reset(){job++;preparing=false;index=0;nextIndex=0;settle();wake()},state:()=>({mode:'car',systemId:null,index,playing,image:String(turns[index]),total:total(),phase:transition?(progress<.5?'disperse':'assemble'):'hold',progress,particleCount:renderer.count,ready,renderer:renderer.kind,decodedViews:[...loaded.values()].filter(im=>im.complete&&im.naturalWidth>0).length,renderedFrames:measurements.renderedFrames,shadow:groundShadow.state()}),performance:()=>({...measurements,renderer:renderer.kind,device:renderer.info()}),destroy(){destroyed=true;job++;cancelAnimationFrame(raf);observer.disconnect();sizeObserver.disconnect();mutation.disconnect();renderer.destroy();groundShadow.destroy();renderer.canvas.removeEventListener('webglcontextlost',lost);root.removeEventListener('click',click);stage.removeEventListener('keydown',key);reduced.removeEventListener('change',motion);document.removeEventListener('visibilitychange',visibility);document.removeEventListener('aurora:bom-change',data)}};return carInstance;
 }
 function mountBOM(container){
  const root=element(container);if(!root)return null;if(bomInstance?.root===root&&root.querySelector('.bom-explorer'))return bomInstance;bomInstance?.destroy();

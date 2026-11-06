@@ -8,3 +8,11 @@
 @media(min-width:1600px){.vehicle-stage{height:300px}.vehicle-heading h3{font-size:18px}.vehicle-cost{font-size:26px}.bom-explorer-image{height:250px}}
 @media(max-width:700px){.vehicle-stage{height:230px}.vehicle-heading h3{font-size:15px}.vehicle-caption{gap:6px}.vehicle-cost{font-size:22px}.vehicle-basis{max-width:58%}.bom-explorer-image{height:220px}.bom-explorer-summary strong{font-size:24px}}
 @media(prefers-reduced-motion:reduce){.vehicle-turntable:after{animation:none}.vehicle-pixels{display:none}.bom-explorer{animation:none}}
+
+/* Grounded multi-view car: the footprint follows the same transition clock. */
+.vehicle-showcase .vehicle-stage{isolation:isolate;background:radial-gradient(ellipse at 50% 78%,rgba(214,211,225,.16),transparent 68%)}
+.vehicle-showcase .vehicle-aura{z-index:0;opacity:.45}
+.vehicle-showcase .vehicle-turntable{display:none}
+.vehicle-showcase .vehicle-ground-shadow{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none;filter:none;mix-blend-mode:normal}
+.vehicle-showcase .vehicle-stage .vehicle-render{z-index:2;filter:none!important;box-shadow:none!important}
+.vehicle-showcase .vehicle-pixels{z-index:3}

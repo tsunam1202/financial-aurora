@@ -2,7 +2,7 @@
 (() => {
   const source = document.currentScript.src;
   window.AuroraReleaseConfig = Object.freeze({
-    version: 'v1.0.0',
+    version: 'v1.0.1',
     imageBase: new URL('../assets/', source).href,
     shopURL: 'https://lab.aurora-racing.com/#shop'
   });

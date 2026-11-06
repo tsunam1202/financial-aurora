@@ -20,11 +20,11 @@ python scripts/build.py
 
 输出到 `release/`：
 
-- `Financial-Aurora-v1.0.0-deploy.zip`：根目录即 `index.html`，带 `css/`、`js/`、`fonts/`，不含图片。
-- `Financial-Aurora-v1.0.0-images.zip`：完整 `assets/` 图片目录。
-- `Financial-Aurora-v1.0.0-manifest.json`：每个文件的 SHA-256、图片 URL、上传前缀与校验状态。
+- `Financial-Aurora-v1.0.1-deploy.zip`：根目录即 `index.html`，带 `css/`、`js/`、`fonts/`，不含图片。
+- `Financial-Aurora-v1.0.1-images.zip`：完整 `assets/` 图片目录，图片内容与 v1.0.0 相同。
+- `Financial-Aurora-v1.0.1-manifest.json`：每个文件的 SHA-256、图片 URL、上传前缀与校验状态。
 
-发布参数在 `release.config.json` 中。默认图片根地址：
+发布参数在 `release.config.json` 中。v1.0.1 仅增加随车辆视角同步变化的程序化地面阴影，没有新增或修改图片，继续使用原图片根地址：
 
 ```text
 https://cdn.aurora-racing.com/financial-aurora/v1.0.0/assets/
@@ -53,4 +53,4 @@ python scripts/build.py --cdn https://cdn.aurora-racing.com/financial-aurora/v1.
 
 `index.html` 为入口；`css/` 为样式；`js/` 包含数据、页面和业务逻辑；`assets/` 为图片；`fonts/` 为字体。动态图片统一经 `AuroraAssetURL` 生成；HTML 图片由构建器转换为同一 CDN 前缀。更新图像时同时重建完整图片 ZIP，避免新页面引用缺失素材。
 
-详细部署步骤与版本变化见 `docs/RELEASE-v1.0.0.md`。项目未授予第三方品牌图片、赞助商标识、字体以外资产的再许可；发布范围应遵循各素材既有授权。
+最新变化见 `docs/RELEASE-v1.0.1.md`；首次部署步骤见 `docs/RELEASE-v1.0.0.md`。项目未授予第三方品牌图片、赞助商标识、字体以外资产的再许可；发布范围应遵循各素材既有授权。

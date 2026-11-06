@@ -200,15 +200,15 @@
     {
       "source": "financial-aurora-preview/vehicle-showcase.css",
       "destination": "css/vehicle-showcase.css",
-      "source_sha256": "1cd0587410d7858508e03a80636eb921d8ecb2dfcbda9fe3772a8a99398d004a",
-      "destination_sha256": "1cd0587410d7858508e03a80636eb921d8ecb2dfcbda9fe3772a8a99398d004a",
+      "source_sha256": "96262a59d3ab699094ef010f63ac4f64177f63536dbd24da5c9bc5f74f6e3336",
+      "destination_sha256": "96262a59d3ab699094ef010f63ac4f64177f63536dbd24da5c9bc5f74f6e3336",
       "byte_preserved": true
     },
     {
       "source": "financial-aurora-preview/vehicle-showcase.js",
       "destination": "js/vehicle-showcase.js",
-      "source_sha256": "0eb105a39c0d7f1b28ca9190060021bc6e9919f3977a9cf5ce5d7d1f1253f7af",
-      "destination_sha256": "f8e4b60dcb8ca2762cea9792df0c93d785488665f72d6ef046bba5f23192ea54",
+      "source_sha256": "7a5f51b4f204e8d39e2fa5e8d537b55c0e8bf5463e88b4b1e5a39a30e387187e",
+      "destination_sha256": "a3cffb38f957f94db783e230e1f04878e0b487a84adfdeb3c70d2d7c7532e1b5",
       "byte_preserved": false
     },
     {
